@@ -1,0 +1,35 @@
+Luxury Jewellers ERP - Proprietary License
+
+Copyright © 2026 MD MUFID ALAM
+All rights reserved.
+
+TERMS OF USE:
+
+1. License Grant:
+   - Licensed for use on a single Windows computer
+   - Non-transferable license
+   - Personal use only
+
+2. Prohibited Actions:
+   - You may NOT resell this software
+   - You may NOT distribute it without permission
+   - You may NOT modify and resell
+   - You may NOT remove copyright notices
+   - You may NOT reverse engineer the code
+
+3. Disclaimer:
+   - Provided "as-is" without warranty
+   - User is responsible for regular backups
+   - No liability for data loss
+   - GST rates must be verified before filing
+
+4. Commercial Use:
+   - For bulk licenses or commercial use
+   - Contact: contact@your-business.com
+
+---
+
+For licensing inquiries, contact:
+Email: mdmufid2004@gmail.com
+Phone: 8582803336
+Website: your-website.com

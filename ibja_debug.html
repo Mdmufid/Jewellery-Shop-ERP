@@ -1,0 +1,2293 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" /><meta http-equiv="x-ua-compatible" content="ie=edge" /><title>
+	Gold rate daily opening and closing rates for India
+</title><meta name="description" content="Jewellery" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta property="og:type" content="website" /><meta property="og:title" content="IBJARATES | Daily Opening and Closing Gold and Silver Rates" /><meta property="og:url" content="https://ibjarates.com/" /><meta property="og:image" content="https://ibjarates.com/images/logo.png" /><meta property="og:description" content="Authentic source for daily Gold and Silver prices with historical metals rates." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- bootstrap CSS -->
+   
+    
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
+    <!-- Animated Text CSS -->
+    <link rel="stylesheet" href="plugins/animate.css/3.7.2/animate.min.css" />
+    <!-- owl-carousel CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all" />
+    <!-- font-awesome CSS -->
+    <link rel="stylesheet" href="plugins/font-awesome/6.1.1/css/all.min.css" />
+    <!-- icomoon CSS -->
+    <link rel="stylesheet" href="fonts/themability-font.css" type="text/css" media="all" />
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,700;1,400&amp;display=swap" rel="stylesheet" /><link href="https://fonts.googleapis.com/css2?family=Aclonica&amp;display=swap" rel="stylesheet" />
+    <!-- plugins -->
+
+    <link rel="stylesheet" href="css/breaking-news-ticker.css" type="text/css" media="all" />
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="css/themability_megamenu.css" /><link rel="stylesheet" href="css/style.css" type="text/css" media="all" /><link rel="stylesheet" href="css/responsive.css" type="text/css" media="all" /><link rel="stylesheet" href="css/dark-mode.css" type="text/css" media="all" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+<style type="text/css">
+  .slick-next::before, .slick-prev::before {
+  font-family: slick;
+  font-size: 32px;
+  line-height: 1;
+  opacity: .75;
+  color: #c89961;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  padding-left: 40px;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 4px;
+  padding: 0;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+   .slick-prev {
+      left: 0px;
+    }
+    .slick-next {
+      right: 10px;
+    }
+    .slick-dots li {
+      position: relative;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+      padding: 0;
+      cursor: pointer;
+    }
+    .slick-dots li {
+      position: relative;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 480px) {  
+    .slick-slide img {
+      display: block;
+      width: 66%;
+    }
+}
+/*.modal-dialog {
+  width: 900px;
+  margin: 30px auto;
+}*/
+
+#closePopup {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#closePopup:hover {
+  background: #c89961;
+  color: #fff;
+  border-color: #c89961;
+  transform: scale(1.1);
+}
+</style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+   <script>
+       var myChart = null;
+
+       window.onload = function () {
+           try {
+               // Load GOLD by default
+               loadChart('Gold');
+           }
+           catch (e) {
+               document.getElementById('Div_Chart').style.display = 'none';
+           }
+
+           var popupOverlay = document.getElementById('popupOverlay');
+           popupOverlay.style.display = 'flex';
+           document.getElementById('closePopup').onclick = function () {
+               popupOverlay.style.display = 'none';
+           };
+           popupOverlay.onclick = function (e) {
+               if (e.target === popupOverlay) {
+                   popupOverlay.style.display = 'none';
+               }
+           };
+       };
+
+       function changeGraph(type) {
+           loadChart(type);
+       }
+
+       function loadChart(type) {
+
+           var goldDiv = document.getElementById("GoldDiv");
+           var silverDiv = document.getElementById("SilverDiv");
+
+           // Show / Hide divs
+           if (type === 'Gold') {
+               goldDiv.style.display = "block";
+               silverDiv.style.display = "none";
+           } else {
+               goldDiv.style.display = "none";
+               silverDiv.style.display = "block";
+           }
+
+           // Destroy previous chart
+           if (myChart != null) {
+               myChart.destroy();
+           }
+
+           // Read correct hidden field
+           var jsonData = type === 'Gold'
+               ? document.getElementById('HdnGold').value
+            : document.getElementById('HdnSilver').value;
+
+           var chartData = JSON.parse(jsonData);
+
+           var canvasId = type === 'Gold' ? 'goldChart' : 'silverChart';
+           var ctx = document.getElementById(canvasId).getContext('2d');
+
+           myChart = new Chart(ctx, {
+               type: 'line',
+               data: {
+                   labels: chartData.labels,
+                   datasets: type === 'Gold'
+                       ? [
+                           {
+                               label: "999 Purity Gold Rates (PM)",
+                               data: chartData.purity999,
+                               borderColor: 'rgba(163, 62, 50, 1)',
+                               borderWidth: 2,
+                               fill: false
+                           },
+                           {
+                               label: "916 Purity Gold Rates (PM)",
+                               data: chartData.purity916,
+                               borderColor: 'rgba(113, 22, 179, 1)',
+                               borderWidth: 2,
+                               fill: false
+                           }
+                       ]
+                       : [
+                           {
+                               label: "999 Purity Silver Rates (PM)",
+                               data: chartData.silverRate,
+                               borderColor: 'rgba(120, 120, 120, 1)',
+                               borderWidth: 2,
+                               fill: false
+                           }
+                       ]
+               },
+               options: {
+                   responsive: true,
+                   plugins: {
+                       legend: {
+                           labels: {
+                               font: {
+                                   weight: 'bold',
+                                   size: 16
+                               }
+                           }
+                       }
+                   },
+                   scales: {
+                       x: {
+                           ticks: {
+                               maxRotation: 90,
+                               minRotation: 45,
+                               autoSkip: true,
+                               maxTicksLimit: 10,
+                               font: {
+                                   weight: 'bold',
+                                   size: 14
+                               }
+                           }
+                       },
+                       y: {
+                           beginAtZero: false,
+                           ticks: {
+                               font: {
+                                   weight: 'bold',
+                                   size: 14
+                               }
+                           }
+                       }
+                   }
+               }
+           });
+       }
+   </script>
+
+
+    <script type="text/javascript">
+        function settime() {
+            var clockbox = document.getElementById("clockbox");
+            if (!clockbox) return;
+
+            // Get the current date
+            const date = new Date();
+
+            // Extract day, month, and year
+            const day = String(date.getDate()).padStart(2, '0'); // Adds leading zero if needed
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
+            const year = date.getFullYear();
+
+            // Extract time
+            let hours = date.getHours();
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            const seconds = String(date.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            const strHours = String(hours).padStart(2, '0');
+
+            // Format the date and time
+            const formattedDate = `${day}/${month}/${year} ${strHours}:${minutes}:${seconds} ${ampm}`;
+
+            clockbox.innerHTML = formattedDate;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            settime();
+            setInterval(settime, 1000);
+        });
+    </script>
+
+    <script>
+        //document.getElementById("Div_Chart").addEventListener("mousedown", function (event) {
+        //    event.preventDefault(); // Prevent left click
+        //});
+
+        //document.getElementById("Div_Chart").addEventListener("contextmenu", function (event) {
+        //    event.preventDefault(); // Prevent right click
+        //});
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("ratesbody").addEventListener("mousedown", function (event) {
+                event.preventDefault(); // Prevent left click
+            });
+
+            document.getElementById("ratesbody").addEventListener("contextmenu", function (event) {
+                event.preventDefault(); // Prevent right click
+            });
+        });
+
+    </script>
+
+
+      <script type="text/javascript">
+       
+          let notifiedIDs = new Set();
+
+          function isInAllowedTimeWindow(rateTime) {
+              const now = new Date();
+              const hours = now.getHours();
+              const minutes = now.getMinutes();
+
+              console.log("Current time:", now.toLocaleTimeString());
+
+              if (rateTime === "12AM") {
+                  // 12:00 AM to 12:29 AM
+                  return hours === 12 && minutes >= 0 && minutes < 30;
+              }
+
+              if (rateTime === "6PM") {
+                  // 5:00 PM to 5:59 PM
+                  return hours === 17 && minutes >= 0 && minutes < 60;
+              }
+
+              return false;
+          }
+
+
+          function checkRates() {
+              const hiddenField = document.getElementById('HdnRatesAvaliable');
+              if (!hiddenField || !hiddenField.value) {
+                  return;
+              }
+
+              try {
+                  const data = JSON.parse(hiddenField.value);
+
+                  data.forEach(row => {
+                      if (isInAllowedTimeWindow(row.RateTime)) {
+                          if (!notifiedIDs.has(row.ID)) {
+                              showNotification(`New rates are update. Please check.`);
+                              notifiedIDs.add(row.ID);
+
+                              setTimeout(() => {
+                                  notifiedIDs.delete(row.ID);
+                              }, 2 * 60 * 1000);
+                          }
+                      }
+                  });
+              } catch (e) {
+                  // Suppress parsing error
+              }
+          }
+
+
+
+          function showNotification(message) {
+              if (Notification.permission === "granted") {
+                  new Notification(message, {
+                      body: "Please check updated rates.",
+                      icon: "/images/IBJA-logo.png"
+                  });
+              } else {
+                  Notification.requestPermission().then(function (permission) {
+                      if (permission === "granted") {
+                          new Notification(message, {
+                              body: "Please check updated rates.",
+                              icon: "/images/IBJA-logo.png"
+                          });
+                      }
+                  });
+              }
+          }
+
+          // Run on page load and every 30 seconds
+          document.addEventListener("DOMContentLoaded", function () {
+              if ("Notification" in window) {
+                  Notification.requestPermission();
+              }
+
+              checkRates(); // Initial run
+              setInterval(checkRates, 30000); // Repeat every 30 seconds
+          });
+
+
+
+      </script>
+
+    
+
+    <style>
+        @media screen and (max-width: 600px) {
+            .hide {
+                display: none;
+            }
+        }
+    </style>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PRCMP2R');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169594483-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169594483-1');
+    </script>
+
+</head>
+<body class="homepage" id="ratesbody">
+    <div class="loader">
+        <div class="outer-circle">
+            <div class="inner-circle">
+                <p class="text">
+                    <img src="images/IBJA-logo.png" width="200">
+                </p>
+            </div>
+        </div>
+
+    </div>
+  
+
+
+    <!-- HEADER DEFAULT MANU AREA -->
+    <header id="header_main">
+        <div class="container">
+            <div class="row header-inner text-center">
+                <!--logo-->
+                <div class="header-center text-lg-center col-lg-12 col-sm-12">
+                    <div id="logo">
+                        <a href="index.aspx">
+                            <img src="images/logo.png" title="Ibjarates" alt="Ibjarates" class="img-fluid">
+                        </a>
+                    </div>
+
+                    <!--------Dark Theme----->
+
+                    <div class="DarkLight">
+                        <input type="checkbox" class="checkbox" id="checkbox">
+                        <label for="checkbox" class="checkbox-label">
+                            <i class="fas fa-sun"></i>
+                            <i class="fas fa-moon"></i>
+                            <span class="ball"></span>
+                        </label>
+                    </div>
+                    <!--------Dark Theme end----->
+
+                </div>
+                <!--logo-->
+                <!--register-->
+            </div>
+        </div>
+
+
+    </header>
+    <form method="post" action="./" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="3Z7j6/e/R48ngXvbYf5CvMjYwwPq+azulZHU4b/RToW+RAR9Uq8QkYYBBHU5ZPEy6Mz7icb3AZU5szf5ycfDaCICoupMCYNhKgExoIiDsm2oMJbPbIGDf9WA9XJxsBcdSp4rjGB9EtyX6nUqKXqLyBobz5VVcH9sogrHcEU1greBHi2mNbjpYYEdfEbZX9lI+YZ/2atig/ubWwER7/zjYX1JUaP8GGf/yajsqXdc5yo6KCyQdkuqMVAjfKeDDpggf5tLL5hnQbi2hUq8SddU/lcNhPskBkZx+D7bDxcl6CXFjQr7Z2aSOnZwxtvv/aTWmweNHC+V3zcmAtl8ammWNE5f41AZUkLnHhUOdWd2ObBy25fiJKCy3tYNZuz/55O2fAiPT1LSMpqHI9zCOSErfJMC7nwn7609N70yUoXoxFA5hmrrLOB6dVYGmfzOQRZ5l7uCkilyRXyNKfkvZZRxEPMTxaCbVRxGVI0YJ5/XKs2G8Sq1XogcjzS2uKtfX2qNXPwYUL0lKS+3DFAkuYLscgJ2VZSgC1W6TVvIVrgo4i2ml12PBG7B7f8YVJzroVMS4kUEgxW4W2kVCd67wI1OQC0l4s6oAjXwnQ7CldJons5WNS8tVF6nPnOpqTIdm3oMhevVJMJhJO1Y3aN+h7ZBbEZ0RTN0wxNYWbWsOb96HvaO8pnpFgpBh7t1xh77pqHOv019gbqcWXiFPdjd8ucWPNXf9Jly8mu8YtsHIBSqRUz6/gy2RswCC/0AJsT7Tj60HqKWyoQrjnW8cZ6SFXz4UgsXk837efxIkrDipQE1vqTaLn8huH5ul4+uAQqHqsQKNQe/X9qSBYQXKbbz6kl8GILM5J2VtDqOyQgvEjL+thwB170++l5pbBoJjUDyjBARwBjIKrtPgmof0AmAMCIrS/RcdcZ1iL6Riz103FZ3xM/fQtYA7S2wXeoZwq5iv/WSN+lwoUf/ay9vPC1CIpBlCs4C1Vs9FJ4GtcCvqi2QfQxlTVEpQq1kxpWKm0suqbrbzczE00g4aa8Fyo99fFVzFTHKF+b5ktIkjk9nIQs7YvNwlgG1szke/YWgUlXOxIOPMPMSTm/C71pv0Fdpy06Yimnm9D/72va9Ddw2zt9eTZ+5hMZ5MLEyFw0S1Rp4LqhHV5Lrsq+8NUAV1ftjLbIVFbnQbTMD0JcjD1NI3QZGEwJ3If61S+pksa3bAnJ2gwF9PBYZjx0J1hKQzWpGMZ0GZ28QTAk/IB17cAVcOnaOQ8UkM8hZXVdpLvR8AS78cdiR2oJs06sT92pdI5aWrrSw1lVI7da2lwO4AzMPiLFMHGq0u/eUBB71nZ93zDunLkg+TI1lOrJ26uaP/rX/tNbPLDJ5D1gFrqvywx8gaMKid6PiR8x6ghpD/qIp4yPFQU5QT+SQK+P/bLIGEbraBMZis6uye/E6YeSwIVeox3dVIq76T+ERw7Ts7A6YA1G/8uWVV7rIMZeMWTz7FgTQknWcG6gk8ux0Bq4IGp9Axq6+6WA7VCy12itnRS80KJgFOr5wnxO9s75p0XquKICT4XACRAtlhFJYlhaBWpPBkCSvvm3VqYZm4EcHTxL8btrW8v9+B6SOObsAEOfQdkTAoQDTd6ddfyxs5s75K3OW/bFv22nzXekx0vuLDEXLTAckI6T80UIlMxtp8dC3d3EmxaU5f2RCz34tLJAi/LQYlVYODGFlwqXpS930RCugIi14EItnWfyah3sODvSS5Pd9Ex0C3qu4u9eFKUNWpnONbW/llerSRCWS5o91zda8QtIQ+WFh8bzbU15ArAW3ODN/1xUq5MZbQKmocooix4rcxuUDNvQzB4PTNXwNemj2kz9zItSGo5xEP9q48rxANVlS5sddTcti/OSoxM7umAV06xOeWY34Es1AWuD3pg/VCCtFW6P8WWQ/Ht9MO9tBrXjn5+56d1TlbYIAEKSwczcLDnTGosfE0JFOkGCCm78fzBvZW6j1Jslw9fgo4YZ+tV6JbGhlrur2HeUgyJSNe7vB37dCACqDaOWo8AoIfD/eDex9Puz1yUALBSiNuXP9iuyO642QA4FugIn0cC/+GcrWYS7dCULAhQTvoivZ0lhxzPQOj+5W+sDZelJOlE/Gs0MQas2BrWsODtkjV4LPLbAxqVC7/lR6sw0mix9I5bUuvRUOmM3X/nR+81YtygoDNLEAPv1G5+FoL1OvkaUx3S8Hm2AQp72/HDHNkqoDtpK3fdUplcuBtSc0XMqm4zq+vSvuhKF7U8HUxT5ADFtRE7Qgan7evNtVe1Rt7w/tEPYytt6AEiE9ooLh4MrLDS/CGd7Pt+R8SEZV1JGGjuPdvMeOe1p4rqsFCLa0xfj8YUN02TI7W3Bct0o2R6iAnJF/39iiqlFRzTWdoqLZb19FkcnBFSW7vJLREaZWgoSL9vtuCFkIa9AcLeetrAhns8+oX3yrNZPYa62WY6qQv+mJZWz3TdyVzFcRylGMhrzjjSgdKCsl/q0yzxEdICTsydkjp2y/3qA9BFghom6VwObWk5oHxshSoCmNBfm7bXS4APkRPRLp22DFFHncTum1h0C6WHqteUmJ+5Dtr0j41ekl+5hZaQNkGKCKK/UXpv/Czyd/ErZ7NUvsBL2sCvQasCoAvFu0vDP/4j1yeK90987K/g/EiPtR/LUGIhTNYuNLdpv7JwuamcIwHwUudMm7YCHr8NtvnklxqJMxqF+tNSpO899H4bPYQ+q5GcK6hYZAXs027GjF7vaJCgGnyUfnL0Z3INolLaQ4Cl7sm9vY93qbF0rZLkiHlDk9dwsqU33JOaUD0zjEQEIc6GjAorALWaqV1ruPob+ZCgQGZeqfs9pFdK8MpkFAF19VSlKCZLRB/LEKN+XRGMSo6C0sRXsLXlY41YvNAx1FIoURPcPyy6MJKOy7/wVQthi3OzTqDqIaAq1A6GG7+b11Jh2kYBlsI0b4imbyekzLdRwFrOY=" />
+</div>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="90059987" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="Tr8IUHDKLD0zV/YowuRPuxiF3DSaTt0MiROmJycFtcadX+YBHz9AKJwD4cMk80YCbnxHpi4H6qY5kFp5pGubIGr8XLEhE8Wos/NpUbPG8XjjGU3MZSeRJ8ohSv5ZjHrjk3hT9eesaZMVYO/OJ3ZZH6OtBNfJkPy8O8oghAdX+P5AnOgNFMja38bpwOo64Bh27ALEsLnWnOnr0g2qc1FcoB/R7otkBO1t0R5ZOEeZe70mkcw1" />
+</div>
+
+        <div class="product-tab-block wow daily-rates-sec">
+            <div class="container">
+                <div class="row g-rate-box">
+                    <!-- <div style="border:1px solid #000;"> -->
+                    <div class="breaking-news-ticker" id="newsTicker11">
+                        <!-- <div class="bn-news">
+                  <ul>
+                    <li> -->
+                        <div class="row">
+                            <div class="owl-carousel allgold_slider">
+                                <div class="item text-center">
+                                    999 Purity 
+                               
+                                    <div class="divider"></div>
+                                    <h3><i class="fa fa-rupee-sign"></i>
+                                        <span id="GoldRatesCompare999">14286</span>
+                                        <span class="gm">(1 Gram)</span>
+                                        
+                                        <img id="GoldRatesCompare999Red" src="images/red-arrow.gif" />
+                                    </h3>
+                                </div>
+                                <div class="item text-center">
+                                    995 Purity 
+                           
+                                    <div class="divider"></div>
+                                    <h3><i class="fa fa-rupee"></i>
+                                        <span id="GoldRatesCompare995">14229</span>
+                                        <span class="gm">(1 Gram)</span>
+                                        
+                                        <img id="GoldRatesCompare995Red" src="images/red-arrow.gif" />
+                                    </h3>
+                                </div>
+                                <div class="item text-center">
+                                    916 Purity 
+                           
+                                    <div class="divider"></div>
+                                    <h3><i class="fa fa-rupee"></i>
+                                        <span id="GoldRatesCompare916">13086</span>
+                                        <span class="gm">(1 Gram)</span>
+                                        
+                                        <img id="GoldRatesCompare916Red" src="images/red-arrow.gif" />
+                                    </h3>
+                                </div>
+                                <div class="item text-center">
+                                    750 Purity 
+                           
+                                    <div class="divider"></div>
+                                    <h3><i class="fa fa-rupee"></i>
+                                        <span id="GoldRatesCompare750">10715</span>
+                                        <span class="gm">(1 Gram)</span>
+                                        
+                                        <img id="GoldRatesCompare750Red" src="images/red-arrow.gif" />
+                                    </h3>
+                                </div>
+                                <div class="item text-center">
+                                    585 Purity
+                           
+                                    <div class="divider"></div>
+                                    <h3><i class="fa fa-rupee"></i>
+                                        <span id="GoldRatesCompare585">8357</span>
+                                        <span class="gm">(1 Gram)</span>
+                                        
+                                        <img id="GoldRatesCompare585Red" src="images/red-arrow.gif" />
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--~~~~~ Start Site Main ~~~~~-->
+                <div class="row">
+                    <div class="title-text text-center mb-20">
+                        <h3></h3>
+                    </div>
+                    <div class="col-md-4 col-sm-12 rates-tbl wdt-6">
+                        <div class="col-sm-12 row-bg">
+                            <div id="clockbox"></div>
+                        </div>
+                        <input type="hidden" name="HdnRatesAvaliable" id="HdnRatesAvaliable" />
+                        <!--  <div class="tb-bg"> -->
+                        
+
+
+                        <table id="TodayRatesTableDataNo" class="tableContainer ctrate">
+	<tr class="hdie" style="display: none;">
+		<th>Purity</th>
+		<th>AM</th>
+		<th>PM </th>
+	</tr>
+	<tr>
+		<td colspan="3" class="txt-green padd20" style="font-weight: 600; padding-top: 45%; text-align: center">
+                                        <span id="lbl_Message">Rates are not published on Central Govt. Holidays & SAT/SUN</span></td>
+	</tr>
+	<tr style="border-top: none">
+		<td colspan="3" class="txt-green padd20" style="font-weight: 600; padding-top: 25%; color: transparent;">NA</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+                                 
+                                        
+                                                <a target="_blank" href="../UploadedFiles/30DaysPdf/Pdf_1951_20260801131751563_Daily Opening and Closing Market Rate.pdf" class="textsmall">
+                                                    <h6>
+                                                        <i class="fa fa-download"></i>Previous 30 Days</h6>
+                                                </a>
+                                            
+                                    </td>
+	</tr>
+</table>
+
+                    </div>
+                    <div class="col-md-8 col-sm-12 rates-tbl mo-mt-40 wdt-6">
+                        <!--  <div class="tb-bg"> -->
+                        <table class="table propage-tab apm">
+                            <thead>
+                                <tr class="row-bg">
+                                    <td colspan="2">
+                                        <div>
+
+                                            <h5>Previous Dates Rate</h5>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="prev-rate">
+                                    <!-- <th scope="col">Karat/Purity</th> -->
+                                    <th colspan="2" scope="col">
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item"><a href="#tab-am" data-bs-toggle="tab" class="nav-link active">AM</a></li>
+                                            <li class="nav-item"><a href="#tab-pm" data-bs-toggle="tab" class="nav-link">PM</a></li>
+                                        </ul>
+                                    </th>
+                                  
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="tab-content">
+                                            <div id="tab-am" class="tab-pane fade active show">
+                                                <table class="table-striped">
+                                                    <thead>
+                                                        <tr class="hdie">
+                                                            <th></th>
+                                                            <th scope="col">999</th>
+                                                            <th scope="col">995</th>
+                                                            <th scope="col">916</th>
+                                                            <th scope="col">750</th>
+                                                            <th scope="col">585</th>
+                                                            <th scope="col" class="ft16">Silver 999</th>
+                                                            <th scope="col" class="ft16">Platinum 999</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="AM"><strong>31/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">143329</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">142755</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">131289</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">107497</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83848</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">219336 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">59089 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="AM"><strong>30/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142401</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">141831</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130439</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">106801</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83305</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">216566 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">57328 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="AM"><strong>29/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142469</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">141899</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130502</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">106852</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83344</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">218619 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">57881 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="AM"><strong>28/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142559</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">141988</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130584</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">106919</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83397</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">217904 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">58058 </td>
+                                                                </tr>
+                                                            
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div id="tab-pm" class="tab-pane fade">
+                                                <table class="table-striped">
+                                                    <thead>
+                                                        <tr class="hdie">
+                                                            <th></th>
+                                                            <th scope="col">999</th>
+                                                            <th scope="col">995</th>
+                                                            <th scope="col">916</th>
+                                                            <th scope="col">750</th>
+                                                            <th scope="col">585</th>
+                                                            <th scope="col" class="ft16">Silver 999</th>
+                                                            <th scope="col" class="ft16">Platinum 999</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="PM"><strong>31/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142860</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">142288</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130860</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">107145</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83573</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">218295 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">58979 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="PM"><strong>30/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">143384</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">142810</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">131340</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">107538</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83880</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">218665 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">56672 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="PM"><strong>29/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142224</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">141654</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130277</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">106668</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83201</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">217355 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">57519 </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="txt-green ft ht-30" data-label="PM"><strong>28/07/2026</strong></td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 999">142291</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 995">141721</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 916">130339</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 750">106718</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Gold 585">83240</td>
+                                                                    <td class="txt-green ft ht-30" data-label="Silver 999">217349 </td>
+                                                                    <td class="txt-green ft ht-30" data-label="Platinum 999">55656 </td>
+                                                                </tr>
+                                                            
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom-width: 0px; text-align: left;">
+                                        <div class="textsmall">
+                                            <h6 class="pt-20" style="font-size: 13px;">*Gold rates per 10gm & Silver rate per 1kg</h6>
+                                        </div>
+                                    </td>
+                                    <td style="border-bottom-width: 0px; text-align: left;">
+                                        <div class="textsmall">
+                                            <h6 class="pt-20" style="font-size: 13px;">*The above rates are without 3% GST and Making Charges </h6>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <!-- </div> -->
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section-indent-extra">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 offset-sm-0 added-info">
+                        <div class="added-info__item col-md-3 padd-all text-center">
+                            <!-- <div class="added-info__icon pt-10"></div> -->
+                            <div class="added-info__description">
+                                <div class="terms-wrap text-center">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#IBJAtermspopup" class="IBJAterms">
+                                        <h6 class="added-info__title"><i class="fa fa-file-text" aria-hidden="true"></i><span>IBJA Terms</span></h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="dividr"></div>
+                            <div class="added-info__description pt-10"><a href="pdf/List-of-Holidays/List-of-Holidays-2026.pdf" target="_blank" class="google btn btn-info"><i class="fa fa-list" aria-hidden="true"></i>List of Holidays 2026</a></div>
+                        </div>
+                        <div class="added-info__item col-md-3">
+                          <a href="pdf/spot-polling-mechanism/spot-polling-mechanism.pdf" target="_blank"><img src="images/spot-polling-mechanism.jpg"></a>
+                       </div>
+                        <div class="added-info__item col-md-3">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#banner1">
+                                <img src="images/small-banner.jpg"></a>
+                        </div>
+                        <div class="added-info__item col-md-3">
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#banner2">
+                                <img src="images/small-banner2.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--------------------------->
+
+        <!--banners1.2 -->
+        <div class="html1 pt-130 pb-40 wow fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 col-sm-12">
+                        <div class="block-content">
+                            <div class="slideTestimonial owl-carousel ">
+                                <div class="item">
+                                    <a href="https://ibjaverified.com/" target="_blank">
+                                        <img alt="" class="img-responsive w-100" src="images/banners/Sliding-banner2.png">
+                                    </a>
+
+                                </div>
+                                <div class="item">
+                                    <a href="https://ibjabulletin.com/" target="_blank">
+                                        <img alt="" class="img-responsive w-100" src="images/banners/Sliding-banner3.png">
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 col-sm-12 mo-mt-40">
+                        <div class="banner2">
+                            <div class="inner1">
+                                <a href="#">
+                                    <img alt="" class="img-responsive w-100" src="images/banners/banner2.png">
+                                </a>
+                            </div>
+                            <div class="IBJAratelogo">
+                                <img alt="" class="img-responsive" src="images/logo.png">
+                            </div>
+                            <!--  <div class="sale-banner"><img alt="" class="img-responsive" src="images/IBJA-rates-logo-2.jpg"></div> -->
+                            <div class="inner2-ibja-subsc text-center">
+                                <div class="banner-title-ibja-subsc">INDIA GOLD AND SILVER METAL RATES API</div>
+                                <div class="banner-desc-ibja-subsc">Authentic source for daily Gold and Silver prices with historical metal rates. </div>
+                                <div class="banner-desc1-ibja-subsc">IBJA Gold prices are India's Benchmark rates.</div>
+                            </div>
+                            <div class="inner-block">
+                                <div class="line-top-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--top product-->
+
+        <!--------------------------->
+
+        <!--------------------------->
+        <div class="category-featured pt-40 pb-60 fadeInUp">
+            <div class="box-content">
+                <div class="container">
+
+                    <div class="page-title toggled">
+                        <h3>API Esteemed Users
+                        </h3>
+                    </div>
+                    <div class="block_box">
+                        <div class="row">
+            <div class="category-box">
+              <div class="category-feature-list">
+                <div class="large-12 columns">
+                    <div class="slider">
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/RBI.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/HDFC.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/IndusInd-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/IGM-logo.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/UCO-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Ujjivan-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Indian-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Bandhan-Bank.jpg" alt="">
+                        </div>
+                      </div>
+
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Mannapuram-Finance.jpg" alt="">
+                        </div>
+                      </div>
+
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Indel-Money.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/L-&-T-Finance.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Giva.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Cleartax.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                         <img src="images/API-Subsc-logo/MSC-Bank.jpg" alt="">
+                         </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Canara-Bank.jpg" alt="">
+                        </div>
+                      </div>
+
+
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/DSP-Asset-Managers.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/unity-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Cholamandalam-Finance.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Poonawala-Fincorp.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                         <img src="images/API-Subsc-logo/Axis-bank.jpg" alt="">
+                         </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/ICICI-Bank.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/IFL.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                       <img src="images/API-Subsc-logo/Central-Bank-of-India.jpg" alt="">
+                       </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/Muthoot-Finance.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                        <img src="images/API-Subsc-logo/IIFL-Finance.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                       <img src="images/API-Subsc-logo/PNB-Bank.jpg" alt="">
+                       </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/360-one.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/J&K-bank.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/Shriram-Finance-Limited.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/equitas.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/BajajFinserv.jpg" alt="">
+                          </div>
+                      </div>
+                      
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/spmcil.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/mygoldguide.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/IDFC-First-Bank.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/PayTM-Money.jpg" alt="">
+                          </div>
+                      </div>
+                      <div class="slide">
+                        <div class="slide__content">
+                          <img src="images/API-Subsc-logo/Keertana.jpg" alt="">
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 mt-30 plr-10">
+                                <p style="font-size: 13px; text-align: center;">Disclaimer: The names, trademarksâ„¢, and logos used on this website are the property of their respective owners. The use of these logos does not imply any affiliation with or endorsement by the respective companies, nor do we claim any rights or ownership over them. All trademarks and registered trademarks mentioned are solely for informational purposes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="product-tab-block all-blog1 wow pb-60 pt-40">
+            <div class="container">
+                <div class="row">
+                    <!-- 1 -->
+                    <div class="col-md-6 col-sm-12">
+
+                        <div class="blog-right blog-right-content mt-30 mb-30">
+                            <div class="date-time">
+                                <img src="images/api_icon.png">
+                            </div>
+
+                            <div class="html4 blog-details text-center">
+
+                                <div class="blog-desc inner4">
+                                    <div class="lg-y50">
+                                        <div class="banner-title4">IBJA Rates API adheres to CERT-in Security Policies</div>
+                                        <div class="mt-40 pb-30">
+                                            <a href="pdf/CERT-in-Security-Policies/Ibj- Gold-and-Silver-Rates-Web-Service-Security-Audit-Certificate-Final.pdf" target="_blank" class="btn-default">View Certificate</a>
+                                        </div>
+                                        <div class="banner-desc4 mrgt-5">
+                                            <p class="mb-0">For complete information on IBJA API:</p>
+                                            <a href="https://www.indiagoldratesapi.com/" target="_blank">www.indiagoldratesapi.com</a>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 2 -->
+                    <div class="col-md-6 col-sm-12  mo-mt-80">
+
+                        <div class="blog-right blog-right-content mt-30 mb-30">
+                            <div class="date-time">
+                                <img src="images/IBJA-logo.png">
+                            </div>
+
+                            <div class="html4 blog-details text-center">
+                                <!--  <h5 class="blog_title"><a href="where-can-i-get.html">Where can I get some?</a></h5> -->
+                                <div class="blog-desc inner4 impnotice">
+                                    <div class="lg-y50">
+                                        <div class="banner-title4">Important Notice</div>
+                                        <div class="banner-desc4 mt-20">
+                                            <p>Any party using the IBJA Gold Price for valuation and pricing activities and in transactions & financial products are advised to subscribe IBJA rates only through OFFICIAL IBJA API (Application Programming Interface)</p>
+                                            <p class="mb-0">To Subscribe to IBJA Gold Rates,</p>
+                                            <a  href="mailto:nagaraj.iyer@ibja.in">email: (To) nagaraj.iyer@ibja.in </a><br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a  href="mailto:ankitawadke@ibja.in">(cc) ankitawadke@ibja.in</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 3 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- IBJA API has been successfully integrated with & Testimonials -->
+        <div class="product-tab-block all-blog2 wow pb-40 pt-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="page-title2 toggled">
+                            <h3>IBJA API has been successfully integrated with</h3>
+                        </div>
+                        <div class="row">
+                            <div class="IBJAAPI-slide owl-carousel ">
+                                <div class="item" style="padding: 0 10px;">
+                                  <div class="service-box-layout7">
+                                  <div class="icon-holder icon-bg-california">
+                                    <div class="item-icon icon-color-california">
+                                      <i class="flaticon-pen"></i>
+                                    </div>
+                                    <img src="images/IBJA-Api/LCODE.png">                
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+
+                                  <div class="service-box-layout7">
+                                  <div class="icon-holder icon-bg-california">
+                                    <div class="item-icon icon-color-california">
+                                      <i class="flaticon-pen"></i>
+                                    </div>
+                                    <img src="images/IBJA-Api/allcloud.png">
+                                  </div>
+                                </div>
+                                </div>
+
+                                <div class="item" style="padding: 0 10px;">
+
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-california">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-pen"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/Infosys-Financle.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-emerald">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-user-experience"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/TCS-BaNCS.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-royal-blue">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-innovation"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/Sales-Force.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-sunset-orange">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-support"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/MS-Dynamics.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-turquoise">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-dashboard"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/Craft-Silicon.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-sunset-orange">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-support"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/Knight-Fintech.png">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item" style="padding: 0 10px;">
+                                    <div class="service-box-layout7">
+                                        <div class="icon-holder icon-bg-california">
+                                            <div class="item-icon icon-color-california">
+                                                <i class="flaticon-pen"></i>
+                                            </div>
+                                            <img src="images/IBJA-Api/Nova-Tech.png">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 testimonial-section">                      
+                        <div class="video-bg">
+                          <div class="video-play">
+                            <a href="https://www.youtube.com/watch?v=0--uPHOKfNM" target="_blank" class="popup-youtube">
+                              <i class="fa fa-play"></i>
+                            </a>
+                            <h3>DR. HASMUKH ADHIA IAS (RETD.) CHAIRMAN -GIFT CITY. <br> talks about importance of IBJA Rates at INDIA INTERNATIONAL BULLION SUMMIT (IIBS-10)  held on March 2025</h3>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- IBJA API has been successfully integrated -->
+
+         <div id="Div_Chart" class="product-tab-block all-blog3 wow pb-40 pt-50" onmousedown="return false;" oncontextmenu="return false;">
+   <div class="container">
+     <div class="row">
+       <div class="card-footer text-right panel-footer text-center">
+         <button type="button" id="button-filter" class="btn btn-primary golden" onclick="changeGraph('Gold')"><i class="fa-solid fa-filter d-none"></i>Gold</button>
+         <button type="button" id="button-filter" class="btn btn-primary silver" onclick="changeGraph('Silver')"><i class="fa-solid fa-filter d-none"></i>Silver</button>
+       </div>
+     </div>
+     <div class="row">
+    <div id="GoldDiv">
+        <canvas id="goldChart"></canvas>
+        <input type="hidden" name="HdnGold" id="HdnGold" value="{&quot;labels&quot;:[&quot;01/04/2026&quot;,&quot;02/04/2026&quot;,&quot;06/04/2026&quot;,&quot;07/04/2026&quot;,&quot;08/04/2026&quot;,&quot;09/04/2026&quot;,&quot;10/04/2026&quot;,&quot;13/04/2026&quot;,&quot;15/04/2026&quot;,&quot;16/04/2026&quot;,&quot;17/04/2026&quot;,&quot;20/04/2026&quot;,&quot;21/04/2026&quot;,&quot;22/04/2026&quot;,&quot;23/04/2026&quot;,&quot;24/04/2026&quot;,&quot;27/04/2026&quot;,&quot;28/04/2026&quot;,&quot;29/04/2026&quot;,&quot;30/04/2026&quot;,&quot;04/05/2026&quot;,&quot;05/05/2026&quot;,&quot;06/05/2026&quot;,&quot;07/05/2026&quot;,&quot;08/05/2026&quot;,&quot;11/05/2026&quot;,&quot;12/05/2026&quot;,&quot;13/05/2026&quot;,&quot;14/05/2026&quot;,&quot;15/05/2026&quot;,&quot;18/05/2026&quot;,&quot;19/05/2026&quot;,&quot;20/05/2026&quot;,&quot;21/05/2026&quot;,&quot;22/05/2026&quot;,&quot;25/05/2026&quot;,&quot;26/05/2026&quot;,&quot;27/05/2026&quot;,&quot;29/05/2026&quot;,&quot;01/06/2026&quot;,&quot;02/06/2026&quot;,&quot;03/06/2026&quot;,&quot;04/06/2026&quot;,&quot;05/06/2026&quot;,&quot;08/06/2026&quot;,&quot;09/06/2026&quot;,&quot;10/06/2026&quot;,&quot;11/06/2026&quot;,&quot;12/06/2026&quot;,&quot;15/06/2026&quot;,&quot;16/06/2026&quot;,&quot;17/06/2026&quot;,&quot;18/06/2026&quot;,&quot;19/06/2026&quot;,&quot;22/06/2026&quot;,&quot;23/06/2026&quot;,&quot;24/06/2026&quot;,&quot;25/06/2026&quot;,&quot;29/06/2026&quot;,&quot;30/06/2026&quot;,&quot;01/07/2026&quot;,&quot;02/07/2026&quot;,&quot;03/07/2026&quot;,&quot;06/07/2026&quot;,&quot;07/07/2026&quot;,&quot;08/07/2026&quot;,&quot;09/07/2026&quot;,&quot;10/07/2026&quot;,&quot;13/07/2026&quot;,&quot;14/07/2026&quot;,&quot;15/07/2026&quot;,&quot;16/07/2026&quot;,&quot;17/07/2026&quot;,&quot;20/07/2026&quot;,&quot;21/07/2026&quot;,&quot;22/07/2026&quot;,&quot;23/07/2026&quot;,&quot;24/07/2026&quot;,&quot;27/07/2026&quot;,&quot;28/07/2026&quot;,&quot;29/07/2026&quot;,&quot;30/07/2026&quot;,&quot;31/07/2026&quot;],&quot;purity999&quot;:[150853,146608,148899,147786,151121,149937,150327,150011,152865,153106,151655,152096,152355,152116,151059,151479,151186,148782,147973,150263,148100,147636,150860,151149,151078,150362,151632,160977,161159,158210,157739,159077,158555,158538,158117,158857,157611,156072,156463,155536,156294,155036,156086,154238,151489,152519,147146,144782,147800,150646,150663,150148,148093,144970,147310,144995,142178,139873,141421,141286,141632,143003,146344,145583,144083,142350,143656,143368,142188,141882,141908,141679,141159,142254,143137,145283,144605,143781,144466,142291,142224,143384,142860],&quot;purity916&quot;:[138181,134293,136391,135372,138427,137342,137700,137410,140024,140245,138916,139320,139557,139338,138370,138755,138486,136284,135543,137641,135660,135235,138188,138452,138387,137732,138895,147455,147622,144920,144489,145715,145236,145221,144835,145513,144372,142962,143320,142471,143165,142013,142975,141282,138764,139707,134786,132620,135385,137992,138007,137536,135653,132793,134936,132815,130235,128124,129542,129418,129735,130990,134051,133354,131980,130393,131589,131325,130244,129964,129988,129778,129302,130305,131113,133079,132458,131703,132331,130339,130277,131340,130860]}" />
+        <input type="hidden" name="HdnGoldLabel" id="HdnGoldLabel" />
+    </div>
+
+    <div id="SilverDiv" style="display:none;">
+        <canvas id="silverChart"></canvas>
+        <input type="hidden" name="HdnSilver" id="HdnSilver" value="{&quot;labels&quot;:[&quot;01/04/2026&quot;,&quot;02/04/2026&quot;,&quot;06/04/2026&quot;,&quot;07/04/2026&quot;,&quot;08/04/2026&quot;,&quot;09/04/2026&quot;,&quot;10/04/2026&quot;,&quot;13/04/2026&quot;,&quot;15/04/2026&quot;,&quot;16/04/2026&quot;,&quot;17/04/2026&quot;,&quot;20/04/2026&quot;,&quot;21/04/2026&quot;,&quot;22/04/2026&quot;,&quot;23/04/2026&quot;,&quot;24/04/2026&quot;,&quot;27/04/2026&quot;,&quot;28/04/2026&quot;,&quot;29/04/2026&quot;,&quot;30/04/2026&quot;,&quot;04/05/2026&quot;,&quot;05/05/2026&quot;,&quot;06/05/2026&quot;,&quot;07/05/2026&quot;,&quot;08/05/2026&quot;,&quot;11/05/2026&quot;,&quot;12/05/2026&quot;,&quot;13/05/2026&quot;,&quot;14/05/2026&quot;,&quot;15/05/2026&quot;,&quot;18/05/2026&quot;,&quot;19/05/2026&quot;,&quot;20/05/2026&quot;,&quot;21/05/2026&quot;,&quot;22/05/2026&quot;,&quot;25/05/2026&quot;,&quot;26/05/2026&quot;,&quot;27/05/2026&quot;,&quot;29/05/2026&quot;,&quot;01/06/2026&quot;,&quot;02/06/2026&quot;,&quot;03/06/2026&quot;,&quot;04/06/2026&quot;,&quot;05/06/2026&quot;,&quot;08/06/2026&quot;,&quot;09/06/2026&quot;,&quot;10/06/2026&quot;,&quot;11/06/2026&quot;,&quot;12/06/2026&quot;,&quot;15/06/2026&quot;,&quot;16/06/2026&quot;,&quot;17/06/2026&quot;,&quot;18/06/2026&quot;,&quot;19/06/2026&quot;,&quot;22/06/2026&quot;,&quot;23/06/2026&quot;,&quot;24/06/2026&quot;,&quot;25/06/2026&quot;,&quot;29/06/2026&quot;,&quot;30/06/2026&quot;,&quot;01/07/2026&quot;,&quot;02/07/2026&quot;,&quot;03/07/2026&quot;,&quot;06/07/2026&quot;,&quot;07/07/2026&quot;,&quot;08/07/2026&quot;,&quot;09/07/2026&quot;,&quot;10/07/2026&quot;,&quot;13/07/2026&quot;,&quot;14/07/2026&quot;,&quot;15/07/2026&quot;,&quot;16/07/2026&quot;,&quot;17/07/2026&quot;,&quot;20/07/2026&quot;,&quot;21/07/2026&quot;,&quot;22/07/2026&quot;,&quot;23/07/2026&quot;,&quot;24/07/2026&quot;,&quot;27/07/2026&quot;,&quot;28/07/2026&quot;,&quot;29/07/2026&quot;,&quot;30/07/2026&quot;,&quot;31/07/2026&quot;],&quot;silverRate&quot;:[239836,227813,234043,230881,244041,236158,239934,236981,249019,251292,249940,250675,250513,248682,240596,243825,243720,236541,236300,240331,240120,240465,249067,254798,255600,256200,264867,287720,287193,268500,268040,268713,267302,264679,266000,271100,266213,260917,263350,263250,265300,261575,261088,256908,244300,245938,233283,232591,242582,251488,249179,247688,240191,231973,237801,227483,222035,216541,219980,225425,225430,228850,233858,233158,227200,221550,223794,220390,218722,219975,219711,217434,215474,219575,223204,225460,222480,222721,224447,217349,217355,218665,218295]}" />
+        <input type="hidden" name="HdnSilverLabel" id="HdnSilverLabel" />
+    </div>
+</div>
+   </div>
+ </div>
+
+       
+
+
+        <!--------------------------->
+        <!-- RBI Guidelines -->
+        <div class="themability-testimonial-block pb-40 pt-40">
+            <div class="page-title toggled">
+                <h3>RBI Notification On IBJA Rates</h3>
+            </div>
+            <div class="themability-testimonial box-module box-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="html2 col-lg-6">
+                            <div class="col">
+                                <div class="banner3">
+                                    <div class="inner1 RBI-Notification">
+                                        <div class="whitebg">
+                                            <h3>Sovereign Gold Bond (SGB) latest RBI Notifications</h3>
+                                            <ul>
+
+                                                
+                                                        <li><a href="../UploadedFiles/SGBPdf/SGBPdf_5574_20260721150642749_Premature redemption under Sovereign Gold Bond (SGB) Scheme - 21 july 2026.pdf" target="_blank">Premature Redemption under SGB Scheme - 21 July 2026</a></li>
+                                                    
+                                                        <li><a href="../UploadedFiles/SGBPdf/SGBPdf_9317_20260721074821830_Premature redemption under Sovereign Gold Bond (SGB) Scheme - Redemption 20 July 2026.pdf" target="_blank">Premature Redemption under SGB Scheme - 20 July 2026</a></li>
+                                                    
+                                                        <li><a href="../UploadedFiles/SGBPdf/SGBPdf_6510_20260720074059660_Premature redemption under Sovereign Gold Bond (SGB) Scheme - 17 july 2026.pdf" target="_blank">Premature Redemption under SGB Scheme - 17 July 2026</a></li>
+                                                    
+                                                        <li><a href="../UploadedFiles/SGBPdf/SGBPdf_1464_20260716073802558_Premature redemption under Sovereign Gold Bond (SGB) Scheme - 15 July 2026.pdf" target="_blank">	 Premature Redemption under SGB Scheme - 15 July 2026</a></li>
+                                                    
+                                                        <li><a href="../UploadedFiles/SGBPdf/SGBPdf_8299_20260714080545647_Premature redemption under Sovereign Gold Bond (SGB) Scheme -13 july 2026.pdf" target="_blank">Premature Redemption under SGB Scheme - 14 July 2026</a></li>
+                                                    
+                                            </ul>
+                                            <div class="card-footer text-right panel-footer">
+                                                <a href="SovereignGoldBond-RBI-Notifications.aspx" id="button-filter" class="btn btn-primary"><i class="fa-solid fa-filter d-none"></i>Read more</a>
+                                            </div>
+                                        </div>
+                                        <!-- <a href="#"><img alt="" class="img-responsive w-100" src="images/banners/RBI-notification-image.png"> </a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 testimonial-section">
+                            <!-- <div class="owl-container"> -->
+                            <div class="row">
+                                <div class="col-lg-12 notification-update">
+                                    <!--  <h3>RBI Notification On IBJA Rates</h3> -->
+                                    <ul>
+                                        <li><a href="pdf/RBI-Notification/New-Gold-Loan-Regulations.pdf" target="_blank" class="text-red">New Gold Loan Regulations Dt: 6-June-2025 <img src="images/new1.gif" width="80"></a></li>
+                                             <li><a href="pdf/RBI-Notification/NOTI74300924007B5C91C2704D8C8F5152E2FC314A66.pdf" target="_blank">Latest Notification from RBI: Alert on Gold Loan Dt: 30-Sept-2024</a></li>
+                               <!--<li><a href="pdf/RBI-Notification/NOTI74300924007B5C91C2704D8C8F5152E2FC314A66.pdf" target="_blank" class="text-red blink-soft">Latest Notification from RBI : Alert on Gold Loan Dt: 30-Sept-2024</a></li>-->
+                               <li><a href="pdf/RBI-Notification/All-NBFCs.pdf" target="_blank">Use of IBJA rates  by All NBFCs</a></li>
+                               <li><a href="pdf/RBI-Notification/All-Regional-Rural-Banks-RRBs.pdf" target="_blank">Use of IBJA rates by RRB and State &amp; Co-op. Bank</a></li>
+                               <li><a href="pdf/RBI-Notification/Scheduled-commercial-bank.pdf" target="_blank">Use of IBJA rates by All Scheduled commercial Bank</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--service_box-->
+        <div class="service-box pt-40 pb-40 wow fadeInUp ibjaratesabout">
+
+            <div class="container">
+                <div class="promo-item">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="page-title toggled">
+                                <h3>About IBJA Rates</h3>
+                            </div>
+                            <div class="service-item">
+                                <div class="service">
+                                    <div class="service-icon">
+                                        <img alt="" class="img-responsive" src="images/IBJA-year-logo-980.jpg">
+                                    </div>
+                                    <div class="service-content">
+                                        <p>IBJA Gold prices are India's Benchmark rates. Authentic source for daily Gold and Silver prices with historical metals rates. Gold rate daily opening and closing rates for India.</p>
+                                        <p>India Bullion and Jewellers Association (IBJA) is a 107 year old association based in Zaveri Bazar, Mumbai, India. IBJA publishes daily Gold opening (AM) and closing (PM) Rates. IBJA Gold rates are benchmark rates for issue of Sovereign Gold Bonds as per various notifications issued by the Ministry of Finance and Reserve Bank of India. IBJA Gold and Silver rates are also benchmark rates for Lending against Jewellery by NBFC and Bank as per RBI notifications. IBJA Rates are released for various purity (Gold 999, Gold 995, Gold 916, Gold 750, Gold 585 and Silver 999)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="page-title2 toggled">
+                                <h3>Latest News</h3>
+                            </div>
+                            <div class="service-item ">
+                                <div class="service">
+                                    <div class="service-content">
+                                        <div class="rbi-notification-wrap">
+                                            <div class="newsTickerCon">
+                                                <ul class="newsTicker">
+                                                    <!--********************************************************************************************-->
+                                                    <li>
+                                                        <img src="images/news.png" />
+                                                        <div class="headline">Punjab National Bank (PNB) uses IBJA Gold rates API for their retails gold loan. </div>
+                                                    </li>
+                                                    <!--********************************************************************************************-->
+                                                    <li>
+                                                        <img src="images/news.png" />
+                                                        <div class="headline">IBJA Rates is the Indiaâ€™s benchmark for Gold Rates to be referred by all NBFCs and State & Co-Op Banks as per RBI circular </div>
+                                                    </li>
+                                                    <!--********************************************************************************************-->
+                                                    <li>
+                                                        <img src="images/news.png" />
+                                                        <div class="headline">Equitas Small Finance Bank Limited successfully...</div>
+                                                    </li>
+                                                    <!--********************************************************************************************-->
+                                                    <li>
+                                                        <img src="images/news.png" />
+                                                        <div class="headline">India International Bullion Summit 2025 ( IIBS-10) was... </div>
+
+                                                        <!--  <p>company and learn about the technology and considerations behind our outstanding products.<br />
+                                                        <a href="">read more</a></p> -->
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of service box -->
+
+  <div class="service-box html1 pt-40 pb-40 wow fadeInUp jpp-bg">     
+  <div class="container">
+    <div class="page-title">
+      <h3>Discover a comprehensive Jewellery Protection Plan</h3>
+    </div>
+   <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <div class="banner1">
+            <div class="inner1 jpp">
+              <a href="https://jewelprotect.com/" target="_blank">
+                <img alt="" class="img-responsive w-100" src="images/JPP-banner.jpg" style="border-radius: 20px;"> </a>
+            </div>
+            <div class="inner2 jpp text-center">
+             <!--  <div class="ibjab2c-banner"><img alt="" class="img-responsive" src="images/IBJA-B2C-logo.png"></div> -->
+              <div class="banner-desc1">Experience the joy of worry-free jewellery ownership!</div>
+              <div class="banner-title"> Ask your jeweller about the
+Jewellery Protection Plan (JPP) today!</div>
+              <div class="banner-desc">Your jewellery, secured by JPP</div>
+                <div class="banner-desc">Powered by Riskcovry</div>
+              <a href="https://jewelprotect.com/" target="_blank"><button class="btn btn-default jpp">Join the JPP network today!</button></a>
+            </div>
+          </div>
+      </div> 
+  </div>
+</div>    
+</div>   
+
+        <div class="product-tab-block wow pb-40 pt-40" style="background: rgb(238, 238, 238); display: none;">
+            <div class="container">
+                <div class="row gutters-2 seolist-brd">
+                    <div class="col-lg-2 col-md-4 col-sm-6 seolist">
+                        <ul>
+                            <li>Daily Gold rates</li>
+                            <li>Daily Silver rates</li>
+                            <li>Pure Gold Rates</li>
+                            <li>Live Gold rates</li>
+                            <li>Live Silver rates</li>
+                            <li>Best Gold rates</li>
+                            <li>Best Silver rates</li>
+                            <li>Daily Gold price</li>
+                            <li>Daily Silver Price</li>
+                            <li>Best Gold price</li>
+                            <li>Best Silver Price</li>
+                            <li>Pure Silver Price</li>
+                            <li>Daily Gold rates</li>
+                            <li>Daily Silver rates</li>
+                            <li>Pure Gold Rates</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 seolist">
+                        <ul>
+                            <li>Today Gold price</li>
+                            <li>Today Silver Price</li>
+                            <li>Today Gold Rate</li>
+                            <li>Export Gold price</li>
+                            <li>Today Silver Rate</li>
+                            <li>Gold 999 price </li>
+                            <li>Gold 995 price</li>
+                            <li>Gold 916 price</li>
+                            <li>Gold 750 price</li>
+                            <li>Gold 585 price</li>
+                            <li>Silver 999 price</li>
+                            <li>Best Gold Rates</li>
+                            <li>Best Silver Rates</li>
+                            <li>Gold Price Chart</li>
+                            <li>Silver Price Chart</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 seolist">
+                        <ul>
+                            <li>Indian Gold Rates</li>
+                            <li>Gold Price in India</li>
+                            <li>Gold Rate in India</li>
+                            <li>Silver Rate in India</li>
+                            <li>Silver Price in India</li>
+                            <li>Gold Rate in INR</li>
+                            <li>Gold Rate in Rupees</li>
+                            <li>Export Silver price</li>
+                            <li>Leading Gold rate provider</li>
+                            <li>Leading Silver rate provider</li>
+                            <li>Gold Rates for Website</li>
+                            <li>Silver Rates for Website</li>
+                            <li>Gold Rates for Mobile</li>
+                            <li>Silver Rates for Mobile</li>
+                            <li>Gold Price History</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 seolist">
+                        <ul>
+                            <li>Silver Price History</li>
+                            <li>Spot Gold Rates</li>
+                            <li>Spot Silver Rates</li>
+                            <li>Gold price trend</li>
+                            <li>Gold Rate Trends</li>
+                            <li>Silver Rate trend</li>
+                            <li>Silver price trend</li>
+                            <li>Gold calculator</li>
+                            <li>Gold live calculator</li>
+                            <li>Spot bullion exchange</li>
+                            <li>Gold Metal exchange</li>
+                            <li>Silver Metal exchange</li>
+                            <li>Top Gold price</li>
+                            <li>Top Gold rates</li>
+                            <li>Top Silver Price</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 seolist">
+                        <ul>
+                            <li>Top Silver Rates</li>
+                            <li>Gold rates for Financial institutes</li>
+                            <li>Gold rates for Government</li>
+                            <li>Gold rates for Banks</li>
+                            <li>Digital Gold rates</li>
+                            <li>Digital Silver Rates</li>
+                            <li>Digital Gold price</li>
+                            <li>Digital Silver price</li>
+                            <li>Free Gold rates</li>
+                            <li>Free gold prices</li>
+                            <li>Free silver prices</li>
+                            <li>Free Silver rates</li>
+                            <li>Export Gold rates</li>
+                            <li>Export Silver rates</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- FOOTER AREA -->
+        <footer class="mt-0">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="position-footer-left">
+                                <div>
+                                    <h5 class="toggled title">contact
+                                    </h5>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <div class="site">
+                                                <div class="contact_title">
+                                                    <i class="fa-solid fa-location-dot"></i>
+                                                </div>
+                                                <div class="contact_site">
+                                                    1st Floor, Entire 1st Floor,
+                                                <br />
+                                                    Refinery Building, 2nd Agiary Lane,
+                                                <br />
+                                                    Zaveri Bazar, Mumbai-400003.
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="phone">
+                                                <div class="contact_title">
+                                                    <i class="fa fa-phone"></i>
+                                                </div>
+                                                <div class="contact_site"><a href="tel:+91-9004120120">+91-9004120120</a> / <a href="tel:+91-22-23426971">+91-22-23426971</a> / <a href="tel:+91-22-23427459">+91-22-23427459</a> </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="email">
+                                                <div class="contact_title">
+                                                    <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <div class="contact_site">
+                                                    <a href="mailto:info@ibja.in">info@ibja.in</a>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <h5 class="toggled">Information
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://ibja.co/" target="_blank">About IBJA</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#Disclaimer">Disclaimer</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#TermsConditions">Terms & Conditions</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#PrivacyPolicy">Privacy Policy</a></li>
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#CookiePolicy">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 d-none">
+                            <h5 class="toggled">Customer Service</h5>
+                            <ul class="list-unstyled"></ul>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <h5 class="toggled">Media Spokesperson</h5>
+                            <ul class="list-unstyled">
+                                <li style="padding: 10px 0;">CA SURENDRA MEHTA<br>
+                                    <a href="tel:+919820127931">+91 9820127931</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="position-footer-right">
+                                <div>
+                                    <div class="col-lg-12 follow-link">
+                                        <h4>Find us on</h4>
+                                        <div class="social-media">
+                                            <a href="https://www.facebook.com/IBJA1919">
+                                                <i class="fa-brands fa-facebook-f"></i></a>
+                                            <a href="https://www.linkedin.com/company/india-bullion-and-jewellers-association-ltd-"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            <a href="https://x.com/IBJA1919"><i class="fa-brands fa-twitter"></i></a>
+                                            <a href="https://www.youtube.com/user/BombayBullionAssoc"><i class="fa-brands fa-youtube"></i></a>
+                                            <a href="https://www.instagram.com/ibja1919/"><i class="fa-brands fa-instagram"></i></a>
+                                            <a href="https://www.whatsapp.com/channel/0029VaBFaxi17En2BqWet40F"><i class="fa-brands fa-whatsapp"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 payment-link mo-ptp-40">
+                                        <h4>IBJA Rates API Subscription</h4>
+                                        <div class="payment-method">
+                                            <!--   <p>Contact on: </p> -->
+                                            <a href="mailto:nagaraj.iyer@ibja.in"> (To) nagaraj.iyer@ibja.in</a>
+                                            <a href="tel:+919821161214" >+91 9821161214</a>
+                                            <a  href="mailto:ankitawadke@ibja.in">(cc) ankitawadke@ibja.in </a>
+                                            <a href="tel:+919004120120" >+91 9004120120</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="copyright">Â© <span id="copyright-year"></span> India Bullion and Jewellers Association Ltd.(IBJA). All Rights Reserved | Powered By <a href="https://senseware.net" target="_blank">www.senseware.net</a></p>
+            </div>
+
+        </footer>
+        <a class="scrollToTop back-to-top" href="#" data-toggle="tooltip" title="" data-original-title="Top" style="display: block;" data-bs-original-title=""><i class="fa fa-angle-up"></i></a>
+
+        <!------ Cookies Consent ------>
+        <div id="cookiesdiv" class="cookies-wrapper">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="data">
+                        <p>By accepting cookies, your preferences will be saved for theme (You can change the theme by clicking the theme button in the top right corner)</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="cookies-buttons">
+                        
+                        <input type="submit" name="Acceptcookies" value="Yes" id="Acceptcookies" class="button" />
+                        
+                        <input type="submit" name="Declinecookies" value="No" id="Declinecookies" class="button" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="modal fade" id="IBJAtermspopup" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel1">IBJA Terms</h1>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body md-hght">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="site">
+                                <li style="margin: 8px; padding-top: 5px;">These rates are exclusive of GST/VAT.</li>
+                                <li style="margin: 8px; padding-top: 5px;">Opening and Closing Rates will not be published on Central Government Holiday.</li>
+                                <li style="margin: 8px; padding-top: 5px;">We do not publish rates on Saturday's and Sunday's</li>
+                                <li style="margin: 8px; padding-top: 5px;">Our office remains close on 2nd and 4th Saturday's</li>
+                                <li style="margin: 8px; padding-top: 5px;">Office Timing 10:30 A.M. to 06:30 P.M.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------->
+    <div class="modal fade" id="banner1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <a href="https://ibjaverified.com/all-jewellers/" target="_blank">
+                        <img src="images/banner1-popup.png" style="margin-top: 1px;" class="img-fluid"></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------->
+
+    <div class="modal fade" id="banner2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <a href="https://ibjaverified.com/all-jewellers/" target="_blank">
+                        <img src="images/banner2-popup.png" style="margin-top: 1px;" class="img-fluid"></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!------------------ Modal---------------------->
+
+    <div class="modal fade" id="Disclaimer" tabindex="-1" aria-labelledby="DisclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog w750">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="DisclaimerModalLabel">Disclaimer</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body higt-fix">
+                    <p><strong>Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">Last updated: May 19, 2025</span></p>
+                    <p><strong>Interpretation and Definitions</strong></p>
+                    <p><strong>Interpretation</strong></p>
+                    <p><span style="font-weight: 400;">The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</span></p>
+                    <p><strong>Definitions</strong></p>
+                    <p><span style="font-weight: 400;">For the purposes of this Disclaimer:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><strong>Company</strong><span style="font-weight: 400;"> (referred to as either "the Company", "We", "Us" or "Our" in this Disclaimer) refers to </span><span style="font-weight: 400;">India Bullion and Jewellers Association Ltd. (IBJA)</span></li>
+                        <li style="font-weight: 400;"><strong>Service</strong><span style="font-weight: 400;"> refers to the Website.</span></li>
+                        <li style="font-weight: 400;"><strong>You</strong><span style="font-weight: 400;"> means the individual accessing the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</span></li>
+                        <li style="font-weight: 400;"><strong>Website</strong><span style="font-weight: 400;"> refers to www.ibja.co, accessible from www.ibja.co</span></li>
+                    </ul>
+                    <p><strong>Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The information contained on the Service is for general information purposes only.</span></p>
+                    <p><span style="font-weight: 400;">The Company assumes no responsibility for errors or omissions in the contents of the Service.</span></p>
+                    <p><span style="font-weight: 400;">In no event shall the Company be liable for any special, direct, indirect, consequential, or incidental damages or any damages whatsoever, whether in an action of contract, negligence or other tort, arising out of or in connection with the use of the Service or the contents of the Service. The Company reserves the right to make additions, deletions, or modifications to the contents on the Service at any time without prior notice.&nbsp;</span></p>
+                    <p><span style="font-weight: 400;">The Company does not warrant that the Service is free of viruses or other harmful components.</span></p>
+                    <p><strong>External Links Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The Service may contain links to external websites that are not provided or maintained by or in any way affiliated with the Company.</span></p>
+                    <p><span style="font-weight: 400;">Please note that the Company does not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.</span></p>
+                    <p><strong>Errors and Omissions Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The information given by the Service is for general guidance on matters of interest only. Even if the Company takes every precaution to ensure that the content of the Service is both current and accurate, errors can occur. Plus, given the changing nature of laws, rules and regulations, there may be delays, omissions or inaccuracies in the information contained on the Service.</span></p>
+                    <p><span style="font-weight: 400;">The Company is not responsible for any errors or omissions, or for the results obtained from the use of this information.</span></p>
+                    <p><strong>Fair Use Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The Company may use copyrighted material which has not always been specifically authorized by the copyright owner. The Company is making such material available for criticism, comment, news reporting, teaching, scholarship, or research.</span></p>
+                    <p><span style="font-weight: 400;">The Company believes this constitutes a "fair use" of any such copyrighted material as provided for in Indian Copyright law.</span></p>
+                    <p><span style="font-weight: 400;">If You wish to use copyrighted material from the Service for your own purposes that go beyond fair use, You must obtain permission from the copyright owner.</span></p>
+                    <p><strong>Views Expressed Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The Service may contain views and opinions which are those of the authors and do not necessarily reflect the official policy or position of any other author, agency, organization, employer or company, including the Company.</span></p>
+                    <p><span style="font-weight: 400;">Comments published by users are their sole responsibility and the users will take full responsibility, liability and blame for any libel or litigation that results from something written in or as a direct result of something written in a comment. The Company is not liable for any comment published by users and reserves the right to delete any comment for any reason whatsoever.</span></p>
+                    <p><strong>No Responsibility Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">The information on the Service is provided with the understanding that the Company is not herein engaged in rendering legal, accounting, tax, or other professional advice and services. As such, it should not be used as a substitute for consultation with professional accounting, tax, legal or other competent advisers.</span></p>
+                    <p><span style="font-weight: 400;">In no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever arising out of or in connection with your access or use or inability to access or use the Service.</span></p>
+                    <p><strong>"Use at Your Own Risk" Disclaimer</strong></p>
+                    <p><span style="font-weight: 400;">All information in the Service is provided "as is", with no guarantee of completeness, accuracy, timeliness or of the results obtained from the use of this information, and without warranty of any kind, express or implied, including, but not limited to warranties of performance, merchantability and fitness for a particular purpose.</span></p>
+                    <p><span style="font-weight: 400;">The Company will not be liable to You or anyone else for any decision made or action taken in reliance on the information given by the Service or for any consequential, special or similar damages, even if advised of the possibility of such damages.</span></p>
+                    <p><strong>Contact Us</strong></p>
+                    <p><span style="font-weight: 400;">If you have any questions about this Disclaimer, You can contact Us:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">By email: </span><a href="mailto:info@ibja.in"><span style="font-weight: 400;">info@ibja.in</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------->
+    <!------------------ Modal---------------------->
+
+    <div class="modal fade" id="PrivacyPolicy" tabindex="-1" aria-labelledby="DisclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog w750">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="DisclaimerModalLabel">Privacy Policy</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body higt-fix">
+                    <p><strong>Privacy Policy</strong></p>
+                    <p><span style="font-weight: 400;">Last updated: May 19, 2025</span></p>
+                    <p><span style="font-weight: 400;">This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</span></p>
+                    <p><span style="font-weight: 400;">We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.&nbsp;</span></p>
+                    <p><strong>Interpretation and Definitions</strong></p>
+                    <p><strong>Interpretation</strong></p>
+                    <p><span style="font-weight: 400;">The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</span></p>
+                    <p><strong>Definitions</strong></p>
+                    <p><span style="font-weight: 400;">For the purposes of this Privacy Policy:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><strong>Account</strong><span style="font-weight: 400;"> means a unique account created for You to access our Service or parts of our Service.</span></li>
+                        <li style="font-weight: 400;"><strong>Company</strong><span style="font-weight: 400;"> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to India Bullion and Jewellers Association Ltd. (IBJA)</span></li>
+                        <li style="font-weight: 400;"><strong>Cookies</strong><span style="font-weight: 400;"> are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.</span></li>
+                        <li style="font-weight: 400;"><strong>Country</strong><span style="font-weight: 400;"> refers to: India</span></li>
+                        <li style="font-weight: 400;"><strong>Device</strong><span style="font-weight: 400;"> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</span></li>
+                        <li style="font-weight: 400;"><strong>Personal Data</strong><span style="font-weight: 400;"> is any information that relates to an identified or identifiable individual.</span></li>
+                        <li style="font-weight: 400;"><strong>Service</strong><span style="font-weight: 400;"> refers to the Website.</span></li>
+                        <li style="font-weight: 400;"><strong>Service Provider</strong><span style="font-weight: 400;"> means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used.</span></li>
+                        <li style="font-weight: 400;"><strong>Usage Data</strong><span style="font-weight: 400;"> refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit).</span></li>
+                        <li style="font-weight: 400;"><strong>Website</strong><span style="font-weight: 400;"> refers to www.ibja.co, accessible from www.ibja.co</span></li>
+                        <li style="font-weight: 400;"><strong>You</strong><span style="font-weight: 400;"> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</span></li>
+                    </ul>
+                    <p><strong>Collecting and Using Your Personal Data</strong></p>
+                    <p><strong>Types of Data Collected</strong></p>
+                    <p><strong>Personal Data</strong></p>
+                    <p><span style="font-weight: 400;">While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Email address</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">First name and last name</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Phone number</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Product / Service Interested</span></li>
+                    </ul>
+                    <p>
+                        <br />
+                        <br />
+                    </p>
+                    <p><strong>Use of Your Personal Data</strong></p>
+                    <p><span style="font-weight: 400;">The Company may use Personal Data for the following purposes:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><strong>To provide and maintain our Service</strong><span style="font-weight: 400;">, including to monitor the usage of our Service.</span></li>
+                        <li style="font-weight: 400;"><strong>To manage Your Account:</strong><span style="font-weight: 400;"> to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.</span></li>
+                        <li style="font-weight: 400;"><strong>For the performance of a contract:</strong><span style="font-weight: 400;"> the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.</span></li>
+                        <li style="font-weight: 400;"><strong>To contact You:</strong><span style="font-weight: 400;"> To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.</span></li>
+                        <li style="font-weight: 400;"><strong>To provide You</strong><span style="font-weight: 400;"> with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.</span></li>
+                        <li style="font-weight: 400;"><strong>To manage Your requests:</strong><span style="font-weight: 400;"> To attend and manage Your requests to Us.</span></li>
+                        <li style="font-weight: 400;"><strong>For business transfers:</strong><span style="font-weight: 400;"> We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred.</span></li>
+                        <li style="font-weight: 400;"><strong>For other purposes</strong><span style="font-weight: 400;">: We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience.</span></li>
+                    </ul>
+                    <p><span style="font-weight: 400;">We may share Your personal information in the following situations:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><strong>With Service Providers:</strong><span style="font-weight: 400;"> We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You.</span></li>
+                        <li style="font-weight: 400;"><strong>For business transfers:</strong><span style="font-weight: 400;"> We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company.</span></li>
+                        <li style="font-weight: 400;"><strong>With Affiliates:</strong><span style="font-weight: 400;"> We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us.</span></li>
+                        <li style="font-weight: 400;"><strong>With business partners:</strong><span style="font-weight: 400;"> We may share Your information with Our business partners to offer You certain products, services or promotions.</span></li>
+                        <li style="font-weight: 400;"><strong>With other users:</strong><span style="font-weight: 400;"> when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside.</span></li>
+                        <li style="font-weight: 400;"><strong>With Your consent</strong><span style="font-weight: 400;">: We may disclose Your personal information for any other purpose with Your consent.</span></li>
+                    </ul>
+                    <p><strong>Retention of Your Personal Data</strong></p>
+                    <p><span style="font-weight: 400;">The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.</span></p>
+                    <p><span style="font-weight: 400;">The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods.</span></p>
+                    <p><strong>Transfer of Your Personal Data</strong></p>
+                    <p><span style="font-weight: 400;">Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to &mdash; and maintained on &mdash; computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.</span></p>
+                    <p><span style="font-weight: 400;">Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.</span></p>
+                    <p><span style="font-weight: 400;">The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.</span></p>
+                    <p><strong>Disclosure of Your Personal Data</strong></p>
+                    <p><strong>Business Transactions</strong></p>
+                    <p><span style="font-weight: 400;">If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy.</span></p>
+                    <p><strong>Law enforcement</strong></p>
+                    <p><span style="font-weight: 400;">Under certain circumstances, the Company may be required to disclose Your Personal Data if required to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency).</span></p>
+                    <p><strong>Other legal requirements</strong></p>
+                    <p><span style="font-weight: 400;">The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Comply with a legal obligation</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Protect and defend the rights or property of the Company</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Prevent or investigate possible wrongdoing in connection with the Service</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Protect the personal safety of Users of the Service or the public</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Protect against legal liability</span></li>
+                    </ul>
+                    <p><strong>Security of Your Personal Data</strong></p>
+                    <p><span style="font-weight: 400;">The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security.</span></p>
+                    <p><strong>Children's Privacy</strong></p>
+                    <p><span style="font-weight: 400;">Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.</span></p>
+                    <p><span style="font-weight: 400;">If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information.</span></p>
+                    <p><strong>Links to Other Websites</strong></p>
+                    <p><span style="font-weight: 400;">Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.</span></p>
+                    <p><span style="font-weight: 400;">We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</span></p>
+                    <p><strong>Changes to this Privacy Policy</strong></p>
+                    <p><span style="font-weight: 400;">We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.</span></p>
+                    <p><span style="font-weight: 400;">We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.</span></p>
+                    <p><span style="font-weight: 400;">You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</span></p>
+                    <p><strong>Contact Us</strong></p>
+                    <p><span style="font-weight: 400;">If you have any questions about this Privacy Policy, You can contact us:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">By email: info@ibja.in</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------->
+    <!------------------ Modal---------------------->
+
+    <div class="modal fade" id="TermsConditions" tabindex="-1" aria-labelledby="DisclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog w750">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="DisclaimerModalLabel">Terms and Conditions</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body higt-fix">
+                    <p><strong>Terms and Conditions</strong></p>
+                    <p><span style="font-weight: 400;">Last updated: May 19, 2025</span></p>
+                    <p><span style="font-weight: 400;">Please read these terms and conditions carefully before using Our Service.</span></p>
+                    <p><strong>Interpretation and Definitions</strong></p>
+                    <p><strong>Interpretation</strong></p>
+                    <p><span style="font-weight: 400;">The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</span></p>
+                    <p><strong>Definitions</strong></p>
+                    <p><span style="font-weight: 400;">For the purposes of these Terms and Conditions:</span></p>
+                    <ul>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Country refers to: India</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Company(referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to www.ibja.co</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Service refers to the Website.</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Terms and Conditions mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.&nbsp;</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Third-party Social Media Service means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">Website refers to India Bullion and Jewellers Association Ltd. (IBJA), accessible from www.ibja.co</span></li>
+                        <li style="font-weight: 400;"><span style="font-weight: 400;">You mean the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</span></li>
+                    </ul>
+                    <p><strong>Acknowledgment</strong></p>
+                    <p><span style="font-weight: 400;">These are the Terms and Conditions governing the use of this Service and the agreement that operates between You and the Company. These Terms and Conditions set out the rights and obligations of all users regarding the use of the Service.</span></p>
+                    <p><span style="font-weight: 400;">Your access to and use of the Service is conditioned on Your acceptance of and compliance with these Terms and Conditions. These Terms and Conditions apply to all visitors, users and others who access or use the Service.</span></p>
+                    <p><span style="font-weight: 400;">By accessing or using the Service You agree to be bound by these Terms and Conditions. If You disagree with any part of these Terms and Conditions then You may not access the Service.</span></p>
+                    <p><span style="font-weight: 400;">You represent that you are over the age of 18. The Company does not permit those under 18 to use the Service.</span></p>
+                    <p><span style="font-weight: 400;">Your access to and use of the Service is also conditioned on Your acceptance of and compliance with the Privacy Policy of the Company. Our Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your personal information when You use the Application or the Website and tells You about Your privacy rights and how the law protects You. Please read Our Privacy Policy carefully before using Our Service.</span></p>
+                    <p><strong>Links to Other Websites</strong></p>
+                    <p><span style="font-weight: 400;">Our Service may contain links to third-party web sites or services that are not owned or controlled by the Company.</span></p>
+                    <p><span style="font-weight: 400;">The Company has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods or services available on or through any such web sites or services.</span></p>
+                    <p><span style="font-weight: 400;">We strongly advise You to read the terms and conditions and privacy policies of any third-party web sites or services that You visit.</span></p>
+                    <p><span style="font-weight: 400;">Termination</span></p>
+                    <p><span style="font-weight: 400;">We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.</span></p>
+                    <p><span style="font-weight: 400;">Upon termination, Your right to use the Service will cease immediately.</span></p>
+                    <p><strong>Limitation of Liability</strong></p>
+                    <p><span style="font-weight: 400;">Not with standing any damages that You might incur, the company is not&nbsp; liable under any circumstance under any provision of this Terms and Your exclusive.&nbsp;</span></p>
+                    <p><span style="font-weight: 400;">To the maximum extent permitted by applicable law, in no event shall the Company or its suppliers be liable for any special, incidental, indirect, or consequential damages whatsoever (including, but not limited to, damages for loss of profits, loss of data or other information, for business interruption, for personal injury, loss of privacy arising out of or in any way related to the use of or inability to use the Service, third-party software and/or third-party hardware used with the Service, or otherwise in connection with any provision of this Terms), even if the Company or any supplier has been advised of the possibility of such damages and even if the remedy fails of its essential purpose.</span></p>
+                    <p><span style="font-weight: 400;">Some states do not allow the exclusion of implied warranties or limitation of liability for incidental or consequential damages, which means that some of the above limitations may not apply. In these states, each party's liability will be limited to the greatest extent permitted by law.</span></p>
+                    <p><span style="font-weight: 400;">"AS IS" and "AS AVAILABLE" Disclaimer</span></p>
+                    <p><span style="font-weight: 400;">The Service is provided to You "AS IS" and "AS AVAILABLE" and with all faults and defects without warranty of any kind. To the maximum extent permitted under applicable law, the Company, on its own behalf and on behalf of its Affiliates and its and their respective licensors and service providers, expressly disclaims all warranties, whether express, implied, statutory or otherwise, with respect to the Service, including all implied warranties of merchantability, fitness for a particular purpose, title and non-infringement, and warranties that may arise out of course of dealing, course of performance, usage or trade practice. Without limitation to the foregoing, the Company provides no warranty or undertaking, and makes no representation of any kind that the Service will meet Your requirements, achieve any intended results, be compatible or work with any other software, applications, systems or services, operate without interruption, meet any performance or reliability standards or be error free or that any errors or defects can or will be corrected.</span></p>
+                    <p><span style="font-weight: 400;">Without limiting the foregoing, neither the Company nor any of the company's provider makes any representation or warranty of any kind, express or implied: (i) as to the operation or availability of the Service, or the information, content, and materials or products included thereon; (ii) that the Service will be uninterrupted or error-free; (iii) as to the accuracy, reliability, or currency of any information or content provided through the Service; or (iv) that the Service, its servers, the content, or e-mails sent from or on behalf of the Company are free of viruses, scripts, trojan horses, worms, malware, timebombs or other harmful components.</span></p>
+                    <p><span style="font-weight: 400;">Some jurisdictions do not allow the exclusion of certain types of warranties or limitations on applicable statutory rights of a consumer, so some or all of the above exclusions and limitations may not apply to You. But in such a case the exclusions and limitations set forth in this section shall be applied to the greatest extent enforceable under applicable law.</span></p>
+                    <p><strong>Governing Law</strong></p>
+                    <p><span style="font-weight: 400;">The laws of India, shall govern this Terms and Your use of the Service.&nbsp;</span></p>
+                    <p><strong>Disputes Resolution</strong></p>
+                    <p><span style="font-weight: 400;">If You have any concern or dispute about the Service, You agree to first try to resolve the dispute informally by contacting the Company.</span></p>
+                    <p><strong>Severability and Waiver</strong></p>
+                    <p><span style="font-weight: 400;">Severability</span></p>
+                    <p><span style="font-weight: 400;">If any provision of these Terms is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.</span></p>
+                    <p><span style="font-weight: 400;">Waiver</span></p>
+                    <p><span style="font-weight: 400;">Except as provided herein, the failure to exercise a right or to require performance of an obligation under this Terms shall not effect a party's ability to exercise such right or require such performance at any time thereafter nor shall be the waiver of a breach constitute a waiver of any subsequent breach.</span></p>
+                    <p><span style="font-weight: 400;">Translation Interpretation</span></p>
+                    <p><span style="font-weight: 400;">These Terms and Conditions may have been translated if We have made them available to You on our Service. You agree that the original English text shall prevail in the case of a dispute.</span></p>
+                    <p><span style="font-weight: 400;">Changes to These Terms and Conditions</span></p>
+                    <p><span style="font-weight: 400;">We reserve the right, at Our sole discretion, to modify or replace these Terms at any time. What constitutes a material change will be determined at Our sole discretion.</span></p>
+                    <p><span style="font-weight: 400;">By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</span></p>
+                    <p><strong>Contact Us</strong></p>
+                    <p><span style="font-weight: 400;">If you have any questions about these Terms and Conditions, You can contact us:</span></p>
+                    <p><span style="font-weight: 400;">By email: info@ibja.in</span></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!------------------ Modal---------------------->
+
+    <div class="modal fade" id="CookiePolicy" tabindex="-1" aria-labelledby="DisclaimerModalLabel" aria-hidden="true">
+        <div class="modal-dialog w750">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="DisclaimerModalLabel">Cookie Policy</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body higt-fix">
+                    <div class="col-md-12">
+                        <div class="region region-content">
+                            <div id="block-system-main" class="block block-system">
+                                <div class="content">
+                                    <div about="/cookie-policy" typeof="sioc:Item foaf:Document" class="ds-1col node node-chemicals-default-page view-mode-full clearfix">
+                                        <div class="group-content field-group-div">
+                                            <div class="group-content-inner field-group-div">
+                                                <div class="group-intro field-group-div">
+                                                    <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                                        <div class="field-items">
+                                                            <div class="field-item even" property="content:encoded">
+                                                                <h5 style="font-size: 15px; line-height: 18px; font-weight: 600;">What is a cookie?</h5>
+                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">A cookie is a small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is visiting a website.  Cookies help the website to optimize your user experience and make your next visit easier and useful to you.</p>
+                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">Our systems will install those cookies as soon as you visit our website, unless you have adjusted your browser preferences, which will refuse our cookies. </p>
+                                                                
+                                                                <h5 style="font-size: 15px; line-height: 18px; font-weight: 600; margin-top: 20px;">Which cookies do we use?</h5>
+                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">Functional cookies to guarantee the optimal working of the website.</p>
+                                                              
+
+                                                                <h5 style="font-size: 15px; line-height: 18px; font-weight: 600; margin-top: 20px;">Functional Cookies</h5>
+                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">These are cookies to guarantee the optimal working of the website itself and are mostly associated with the software the website has been built with.</p>
+
+                                                                <table border="1" cellpadding="1" cellspacing="1" style="border-collapse: collapse;">
+                                                                    <tbody style="border-color: #a8a8a8; border-style: solid; border-width: 1px;">
+                                                                        <tr>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;"><strong>Cookie name</strong></p>
+                                                                            </td>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;"><strong>Expire time</strong></p>
+                                                                            </td>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;"><strong>Purpose</strong></p>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">UserCookiesIbjarates</p>
+                                                                            </td>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">30 Days</p>
+                                                                            </td>
+                                                                            <td style="border-color: inherit; border-style: solid; border-width: 1px;">
+                                                                                <p style="font-size: 13px; line-height: 18px; margin-bottom: 6px;">This Cookies is use to store your theme preference.</p>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!---------------------->
+
+<div id="popupOverlay">
+  <div id="popupBox" style="position: relative;">
+    <button id="closePopup">&times;</button>
+    <div class="col-md-12 text-center">
+      <img src="images/notice-popup.png" style="border-radius:30px;" alt="" class="img-fluid"> 
+     </div>
+  </div>
+</div>
+<!--------------Modal------------->
+
+<!--------------------------------->
+
+
+    <!-- Main jquery js -->
+    <script src="js/vendor/jquery-3.7.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- owl-carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- js -->
+    <script src="js/themability_megamenu.js"></script>
+    <!-- wow js -->
+    <script src="plugins/wow/1.1.2/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <!-- Main js -->
+    <script src="js/theme.js"></script>
+    <!----------date, day, year with time--------------------------->
+
+
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            var newsNum = $(".newsTicker li").length;
+
+            var totalNews_H = 0;
+            for (var i = 0; i < newsNum; i++) {
+                var news_H = $(".newsTicker li").eq(i).outerHeight(true);
+                totalNews_H = totalNews_H + news_H;
+            }
+
+            $(".newsTicker").css('height', totalNews_H + 'px');
+
+            var speed = 1, animAmount, animInterval;
+
+            animateNews();
+
+            function animateNews() {
+                $(".newsTicker li").eq(0).animate({
+                    'marginTop': '-=' + speed + 'px'
+                }, 1, function () {
+                    animAmount = speed;
+                    var animNews_H = $(".newsTicker li").eq(0).outerHeight(true);
+
+                    if (animAmount >= animNews_H) {
+                        $(this).parent().append($(this));
+                        $(this).removeAttr('style');
+                    }
+
+                    animInterval = setTimeout(function () {
+                        animateNews();
+                    }, 50);
+                });
+            }
+
+            $(".newsTicker").hover(function () {
+                clearTimeout(animInterval);
+                $(".newsTicker li").eq(0).stop();
+            }, function () {
+                animateNews();
+            });
+        });
+
+    </script>
+
+    
+
+    
+
+    
+
+    <script type="text/javascript">
+        const checkbox = document.getElementById("checkbox");
+
+        // Run after DOM is ready
+        window.addEventListener("DOMContentLoaded", () => {
+            const cookieConsent = getCookie("UserCookiesIbjarates");
+
+            if (cookieConsent && getCookieValue("UserCookiesIbjarates", "CookiesPermission") === "accept") {
+                const theme = getCookie("UserTheme");
+                if (theme === "dark") {
+                    document.body.classList.add("dark");
+                    checkbox.checked = true;
+                }
+            }
+        });
+
+        // When user toggles theme
+        checkbox.addEventListener("change", () => {
+            const cookieConsent = getCookie("UserCookiesIbjarates");
+
+            if (cookieConsent && getCookieValue("UserCookiesIbjarates", "CookiesPermission") === "accept") {
+                if (checkbox.checked) {
+                    document.body.classList.add("dark");
+                    setCookie("UserTheme", "dark", 30);
+                } else {
+                    document.body.classList.remove("dark");
+                    setCookie("UserTheme", "light", 30);
+                }
+            } else {
+                // If cookies not accepted, just change theme visually without saving
+                if (checkbox.checked) {
+                    document.body.classList.add("dark");
+                } else {
+                    document.body.classList.remove("dark");
+                }
+            }
+        });
+
+        // Set single cookie
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Get simple cookie value
+        function getCookie(name) {
+            const cname = name + "=";
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(cname) === 0) {
+                    return c.substring(cname.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        // Get specific key from multi-key cookie like "CookiesPermission=accept"
+        function getCookieValue(cookieName, key) {
+            const cookie = getCookie(cookieName);
+            if (!cookie) return null;
+            const pairs = cookie.split('&'); // In case multiple key-values
+            for (let i = 0; i < pairs.length; i++) {
+                const [k, v] = pairs[i].split('=');
+                if (k === key) return v;
+            }
+            return null;
+        }
+    </script>
+
+
+
+<script>
+    $('.slider').slick({
+      rows: 2,
+      dots: true,
+      autoplay: true,
+      arrows: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 6,
+      slidesToScroll: 1,            
+       responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 4
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ]
+     });
+
+  </script>
+
+</body>
+</html>
