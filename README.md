@@ -86,7 +86,7 @@ Username: admin
 Password: [Contact us for credentials]
 ```
 
-**[Request Login Credentials](mailto:contact@your-business.com)**
+**[Request Login Credentials](mailto:mdmufid2004@gmail.com)**
 
 ### **3. Start Using**
 
@@ -182,9 +182,9 @@ Password: [Contact us for credentials]
 
 **Questions? Need help? Want a demo?**
 
-📧 **Email:** contact@your-business.com  
-📱 **Phone:** your-phone-number  
-🌐 **Website:** your-website.com  
+📧 **Email:** mdmufid2004@gmail.com.com  
+📱 **Phone:** 8582803336
+🌐 **Website:** https://portfolio-sigma-ecru-82.vercel.app/
 
 ---
 
