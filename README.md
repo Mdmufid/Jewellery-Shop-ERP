@@ -34,7 +34,7 @@ Transform your jewellery retail business with professional billing, real-time in
 
 **Watch the full walkthrough:**
 
-[![Watch Demo Video]([(https://www.youtube.com/watch?v=tm3qxCA1iwo))
+[![Luxury Jewellers ERP Demo](https://img.youtube.com/vi/tm3qxCA1iwo/maxresdefault.jpg)](https://www.youtube.com/watch?v=tm3qxCA1iwo)
 
 *Click above to watch a 5-minute demo showing billing, inventory, and reports in action.*
 
