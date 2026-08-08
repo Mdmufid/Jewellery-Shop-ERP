@@ -72,7 +72,7 @@ Transform your jewellery retail business with professional billing, real-time in
 
 ### **1. Download & Install**
 
-👉 **[Download Latest Version Here](your-download-link)**
+👉 **[Download Latest Version Here]([your-download-link](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe))**
 
 - Simply download the `.exe` file
 - Run it on your Windows 10/11 computer
@@ -219,7 +219,7 @@ Luxury Jewellers ERP is designed by jewellery retail experts to solve real probl
 
 **Version 1.0.0** | Last Updated: August 2026
 
-**Ready to transform your jewellery shop?** → [Download Now](your-download-link)
+**Ready to transform your jewellery shop?** → [Download Now]([your-download-link](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe))
 
 ---
 
