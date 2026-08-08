@@ -2,7 +2,7 @@
 
 **Professional Billing & Inventory Management System for Indian Jewellery Retailers**
 
-[![Download](https://img.shields.io/badge/download-v1.0.0-brightgreen)]([your-download-link](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe))
+[![Download](https://img.shields.io/badge/download-v1.0.0-brightgreen)](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe)
 [![Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](https://www.microsoft.com/windows)
 [![GST Compliant](https://img.shields.io/badge/compliance-GST%20Compliant-orange)](https://www.cbic.gov.in/)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](#license)
