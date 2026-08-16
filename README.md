@@ -1,32 +1,32 @@
-# Luxury Jewellers ERP
+# 💎 Luxury Jewellers ERP
 
 **Professional Billing & Inventory Management System for Indian Jewellery Retailers**
 
-[![Download](https://img.shields.io/badge/download-v1.0.0-brightgreen)](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe)
+[![Get it from Microsoft](https://img.shields.io/badge/Get_it_from-Microsoft_Store-blue?logo=windows\&logoColor=white)](https://apps.microsoft.com/detail/9mszc38x7180?hl=en-GB&gl=IN)
+[![Version](https://img.shields.io/badge/version-1.0.2-brightgreen)](#)
 [![Windows](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)](https://www.microsoft.com/windows)
-[![GST Compliant](https://img.shields.io/badge/compliance-GST%20Compliant-orange)](https://www.cbic.gov.in/)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](#license)
 
-> **A powerful, offline-first desktop application built specifically for Indian jewellery shops. No internet. No subscriptions. No hassles.**
+> **A powerful, offline-first desktop application built specifically for Indian jewellery shops.**
 
-Transform your jewellery retail business with professional billing, real-time inventory tracking, GST-compliant invoicing, and financial reports—all running securely on your local computer.
+Transform your jewellery retail business with professional billing, real-time inventory tracking, GST-ready invoicing, customer management, purchase management, old-gold exchange, repairs, job work, and financial reporting.
 
 ---
 
 ## 🎯 What This Does
 
-| Feature | Benefit |
-|---------|---------|
-| **GST-Compliant Billing** | Create tax invoices with automatic CGST/SGST/IGST calculations |
-| **Inventory Tracking** | Manage stock with HUID/hallmark support, weight, and purity |
-| **Real-Time Reports** | Sales, GST summaries, stock valuation, outstanding dues |
-| **Customer Management** | Track customers, payment history, and account ledgers |
-| **Supplier & Purchases** | Record bills, manage payables, auto-update inventory |
-| **Job Work / Karigar** | Issue metal, track wastage, manage artisan payments |
-| **Old Gold Exchange** | Record trade-ins, calculate melting deductions |
-| **Repair Management** | Track repair tokens, delivery dates, payments |
-| **100% Offline** | No internet required, all data stays on your computer |
-| **Easy Backups** | One-click backup to USB or cloud storage |
+| Feature                  | Benefit                                                        |
+| ------------------------ | -------------------------------------------------------------- |
+| **GST-Ready Billing**    | Create tax invoices with automatic CGST/SGST/IGST calculations |
+| **Inventory Tracking**   | Manage jewellery stock with HUID, hallmark, weight and purity  |
+| **Real-Time Reports**    | Sales, GST summaries, stock valuation and outstanding dues     |
+| **Customer Management**  | Track customers, payment history and account ledgers           |
+| **Supplier & Purchases** | Record purchase bills, manage payables and update inventory    |
+| **Job Work / Karigar**   | Issue metal, track wastage and manage artisan payments         |
+| **Old Gold Exchange**    | Record trade-ins and calculate exchange value                  |
+| **Repair Management**    | Track repair tokens, delivery dates and payments               |
+| **Offline-First**        | Core data is stored locally on the computer                    |
+| **Easy Backups**         | Backup and restore your business database                      |
 
 ---
 
@@ -36,274 +36,366 @@ Transform your jewellery retail business with professional billing, real-time in
 
 [![Luxury Jewellers ERP Demo](https://img.youtube.com/vi/tm3qxCA1iwo/maxresdefault.jpg)](https://www.youtube.com/watch?v=tm3qxCA1iwo)
 
-*Click above to watch a 5-minute demo showing billing, inventory, and reports in action.*
+**YouTube Demo:**
+https://youtu.be/tm3qxCA1iwo
+
+---
+
+## 🛍️ Microsoft Store
+
+Download **Luxury Jewellers ERP** from the Microsoft Store:
+
+**https://apps.microsoft.com/detail/9mszc38x7180?hl=en-GB&gl=IN**
 
 ---
 
 ## 📸 Screenshots
 
 ### Dashboard
+
 ![Dashboard](assets/dashboard.png)
 
-### GST-Compliant Invoice
+### GST-Ready Invoice
+
 ![Billing](assets/billing.png)
 
 ### Real-Time Inventory
+
 ![Inventory](assets/inventory.png)
 
 ### Financial Reports
+
 ![Reports](assets/reports.png)
 
 ---
 
-## ✨ Why Choose Luxury Jewellers ERP?
+# ✨ Why Choose Luxury Jewellers ERP?
 
-✅ **Built for Indian Jewellery Shops** — Understands GST, HUID, hallmarks, making charges  
-✅ **Offline & Secure** — Your data never leaves your computer  
-✅ **Professional Invoicing** — Generates tax-ready PDF invoices instantly  
-✅ **No Subscriptions** — One-time purchase, no monthly fees  
-✅ **Ease to Use** — Intuitive interface, no technical knowledge needed  
-✅ **Works on Any Windows PC** — No special software required  
-✅ **Automatic Backups** — Keep your data safe with one-click backup  
+✅ **Built for Indian Jewellery Shops** — Designed around jewellery-specific workflows such as purity, HUID, hallmarking, making charges and old-gold exchange.
+
+✅ **Offline-First & Secure** — Core business data is stored locally using SQLite.
+
+✅ **Professional Invoicing** — Generate professional PDF invoices.
+
+✅ **Inventory Management** — Track jewellery items, weights, purity, stock movement and valuation.
+
+✅ **Business Reports** — Access sales, GST, stock and outstanding reports.
+
+✅ **Backup & Restore** — Keep your business data protected with local backups.
+
+✅ **Role-Based Access** — Support for Admin, Manager and Staff users.
 
 ---
 
-## 🚀 Quick Start
+# 🚀 Quick Start
 
-### **1. Download & Install**
+## 1. Download & Install
 
-👉 **[Download Latest Version Here](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe)**
+### Microsoft Store — Recommended
 
-- Simply download the `.exe` file
-- Run it on your Windows 10/11 computer
-- Follow the installer steps
-- Takes 2 minutes
+👉 **[Download from Microsoft Store](https://apps.microsoft.com/detail/9mszc38x7180?hl=en-GB&gl=IN)**
 
-### **2. First Login**
+Install the application directly through the Microsoft Store and follow the Windows installation process.
 
-```
+---
+
+## 2. First Login
+
+For the development/demo environment, the default credentials are:
+
+```text
 Username: admin
-Password: [Contact us for credentials]
+Password: admin123
 ```
 
-**[Request Login Credentials](mailto:mdmufid2004@gmail.com)**
+> ⚠️ **Change the default password immediately after logging in.**
 
-### **3. Start Using**
-
-- Set up your shop details
-- Enter today's gold/silver rates
-- Create your first invoice
-- That's it!
+For production deployments, use secure credentials and do not retain default passwords.
 
 ---
 
-## 📋 Features Overview
+## 3. Start Using
 
-### **Billing & Invoicing**
-- Create GST tax invoices in seconds
-- Automatic calculation of CGST, SGST, IGST
-- Per-item making charges and wastage tracking
-- Old-gold credits and scheme redemptions
-- Split payments (cash, check, card, etc.)
-- Professional PDF invoice printing
+After logging in:
 
-### **Inventory Management**
-- Complete item master with weight, purity, HUID
-- Real-time stock tracking with full audit trail
-- Stock valuation at current market rates
-- Barcode support for quick searches
+1. Set up your shop details.
+2. Configure GSTIN and address information.
+3. Enter today's gold, silver and platinum rates.
+4. Create your product categories.
+5. Add your first inventory items.
+6. Create your first customer.
+7. Create your first invoice.
 
-### **Rate Master**
-- Daily gold/silver/platinum rate entry
-- Per-purity rates
-- Historical rate tracking
-- Automatic application to invoices
-
-### **Customer & Supplier Management**
-- Customer database with contact info
-- Running account ledgers
-- Outstanding dues tracking
-- Supplier payables management
-
-### **Financial Reports**
-- Sales register (daily/monthly/yearly)
-- GST summary for GSTR-1 filing
-- Stock valuation report
-- Outstanding receivables & payables
-- Artisan payment statements
-
-### **Data Security**
-- Fully offline operation
-- Local SQLite database
-- Regular backups to USB or cloud
-- Password-protected access
-- Complete audit trail
+That's it!
 
 ---
 
-## 🔐 Security & Privacy
+# 📋 Features Overview
 
-- ✅ **100% Offline** — No internet connection needed
-- ✅ **Your Data, Your Computer** — Nothing uploaded to servers
-- ✅ **Secure Backups** — Easy backup to USB or Google Drive
-- ✅ **No Subscriptions** — No recurring charges, no tracking
-- ✅ **Professional Grade** — Enterprise-level security
+## 🧾 Billing & Invoicing
 
----
-
-## 💻 System Requirements
-
-- **Windows 10 or Windows 11** (64-bit)
-- **4 GB RAM** (8 GB recommended)
-- **500 MB free disk space**
-- **Administrator access** for installation
-
----
-
-## 📖 Documentation
-
-- **[Installation Guide](docs/INSTALLATION.md)** — Step-by-step setup instructions
-- **[User Guide](docs/USER_GUIDE.md)** — How to use all features
-- **[FAQ](docs/FAQ.md)** — Common questions answered
+* Create GST tax invoices
+* Automatic CGST calculation
+* Automatic SGST calculation
+* Automatic IGST calculation
+* Per-item making charges
+* Wastage tracking
+* Old-gold credits
+* Scheme redemption support
+* Multiple payment methods
+* Split payment support
+* Real-time inventory deduction
+* Professional PDF invoice generation
+* Invoice printing
+* Invoice history
+* Customer ledger updates
 
 ---
 
-## 🎓 Who Should Use This?
+## 📦 Inventory Management
 
-✅ **Jewellery Shops** — Perfect for retail stores  
-✅ **Jewellers & Artisans** — Track your inventory and sales  
-✅ **Franchise Owners** — Manage multiple locations  
-✅ **Shop Managers** — Run daily operations efficiently  
-✅ **Accountants** — Generate GST-ready reports  
-
----
-
-## 📞 Support & Contact
-
-**Questions? Need help? Want a demo?**
-
-📧 **Email:** mdmufid2004@gmail.com.com  
-📱 **Phone:** 8582803336
-🌐 **Website:** https://portfolio-sigma-ecru-82.vercel.app/
-
----
-
-## 📄 License
-
-**Proprietary License** — All rights reserved.
-
-This software is licensed for use on a single computer. Redistribution, resale, or commercial use is strictly prohibited without permission.
-
-See [LICENSE](LICENSE) file for full terms.
+* Complete jewellery item master
+* Gross weight tracking
+* Net weight tracking
+* Purity management
+* Stone details
+* HUID / hallmark tracking
+* Real-time stock tracking
+* Stock movement ledger
+* Complete audit trail
+* Stock valuation
+* Barcode support
+* Product search
+* Purchase-to-stock updates
+* Sales-to-stock deductions
 
 ---
 
-## 🛠️ Technical Stack
+## ⚖️ Rate Master
 
-Built with:
-- **Electron** — Desktop application framework
-- **React + Vite** — Modern, fast UI
-- **SQLite** — Reliable local database
-- **Node.js** — Powerful backend
-- **pdfkit** — Professional PDF generation
-
----
-
-## 💡 About
-
-Luxury Jewellers ERP is designed by jewellery retail experts to solve real problems in Indian jewellery shops. Every feature is built based on actual shop workflows.
-
-**Created with ❤️ for Indian jewellery businesses**
+* Gold rate management
+* Silver rate management
+* Platinum rate management
+* Per-purity rates
+* Historical rate tracking
+* Daily rate updates
+* Automatic application of rates to invoices
+* Rate-based inventory valuation
 
 ---
 
-**Version 1.0.0** | Last Updated: August 2026
+## 👥 Customer Management
 
-**Ready to transform your jewellery shop?** → [Download Now](https://github.com/Mdmufid/Jewellery-Shop-ERP/releases/download/v1.0.0/Luxury.Jewellers.Setup.1.0.0.exe)
-
----
-
-## 📋 Features & Modules
-
-| Module | Capabilities |
-|--------|--------------|
-| **Billing / POS** | GST-compliant invoicing with live CGST/SGST/IGST calculation • Per-item making charges & wastage tracking • Old-gold credit and scheme redemption • Split & multiple payment methods • Real-time inventory deduction • PDF invoice generation & printing |
-| **Inventory Management** | Complete item master with gross/net weight & purity specifications • Stone details and HUID hallmark tracking • Real-time stock ledger with full audit trail • Stock valuation at current market rates • Barcode support for item tracking |
-| **Rate Master** | Daily precious metal rates (gold, silver, platinum) per purity • Historical rate tracking • Automatic rate application to sales & valuations |
-| **Customer Management** | Complete customer database with contact details • Running account ledger & payment history • Outstanding dues tracking • Customer search and segmentation |
-| **Supplier & Purchase Management** | Purchase order & bill recording • Automatic inventory stock updates • Supplier-wise payable ledger • Purchase history and price tracking |
-| **Job Work / Karigar** | Issue raw metal to goldsmiths for processing • Receipt of finished items • Automatic wastage calculation • Making charge payable tracking |
-| **Old Gold Exchange** | Trade-in recording with tested purity • Melting deduction calculations • Redeemable credit application or cash settlement |
-| **Repair Management** | Repair token creation and tracking • Expected delivery dates • Advance payment recording • Status tracking (ready/delivered) • Balance due calculation |
-| **Business Reports** | Sales register by date range • GST summary (HSN-wise) for GSTR-1 filing • Stock valuation report • Outstanding receivables/payables • Artisan payment statements |
-| **Settings & Administration** | Shop profile & GSTIN configuration • HSN code & GST rate master • Product categories • Multi-user support with role-based access • Database backup & restore • User audit log |
-
-**All calculations are formula-based and verified** — see [`src/main/utils/gst.js`](src/main/utils/gst.js) and [`src/main/utils/pricing.js`](src/main/utils/pricing.js) for details. No mock or placeholder data.
-
-On first launch, the app seeds official **CBIC HSN codes and GST rates for jewellery** (HSN 7113, 7108, 7106, 7118, 9988) and standard purity definitions. **You can start billing immediately, but verify all GST rates against the current CBIC notification for your state** before going live. Rates are configurable in Settings.
+* Customer database
+* Contact information
+* Customer search
+* Purchase history
+* Payment history
+* Running account ledger
+* Outstanding dues
+* Customer balance tracking
 
 ---
 
-## 🏗️ Project Architecture
+## 🏢 Supplier & Purchase Management
 
-```
+* Supplier database
+* Purchase bill recording
+* Purchase history
+* Supplier-wise payable ledger
+* Automatic inventory updates
+* Supplier payment tracking
+* Purchase price history
+
+---
+
+## 👨‍🔧 Job Work / Karigar
+
+* Issue raw metal to artisans
+* Track metal issued
+* Track finished items
+* Track received weight
+* Wastage calculation
+* Making charge tracking
+* Artisan payment tracking
+* Job work history
+* Karigar statements
+
+---
+
+## ♻️ Old Gold Exchange
+
+* Old-gold trade-in recording
+* Purity tracking
+* Weight tracking
+* Melting deduction calculations
+* Exchange value calculation
+* Credit application toward new purchases
+* Cash settlement support
+
+---
+
+## 🛠️ Repair Management
+
+* Repair token creation
+* Customer details
+* Repair description
+* Expected delivery date
+* Advance payment recording
+* Repair status tracking
+* Ready / Delivered status
+* Balance due calculation
+* Repair history
+
+---
+
+## 📊 Financial Reports
+
+* Daily sales register
+* Monthly sales register
+* Yearly sales register
+* GST summary
+* HSN-wise reports
+* Stock valuation report
+* Outstanding customer receivables
+* Outstanding supplier payables
+* Artisan payment statements
+* Operational reports
+* Financial reports
+
+---
+
+## 🔐 Data Security
+
+* Offline-first architecture
+* Local SQLite database
+* Password-protected access
+* Secure password hashing
+* Role-based access
+* Transaction audit trail
+* Database backup
+* Database restore
+* Restore safety copy
+
+---
+
+# 🔐 Security & Privacy
+
+* ✅ **Offline-First** — Core business data is stored locally
+* ✅ **Local Database** — SQLite database stored on the computer
+* ✅ **Secure Passwords** — Passwords are securely hashed
+* ✅ **Audit Trail** — Transactions can be tracked by user and time
+* ✅ **Backup & Restore** — Business data can be backed up and restored
+* ✅ **Role-Based Access** — Different users can have different permissions
+
+---
+
+# 🎓 Who Should Use This?
+
+✅ **Jewellery Shops** — Retail jewellery stores
+
+✅ **Jewellers & Artisans** — Inventory, billing and work tracking
+
+✅ **Shop Managers** — Daily business operations
+
+✅ **Accountants** — Sales and GST-related reports
+
+✅ **Jewellery Businesses** — Businesses looking for a dedicated Windows jewellery ERP
+
+---
+
+# 📋 Features & Modules
+
+| Module                             | Capabilities                                                                                                                                                               |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Billing / POS**                  | GST-ready invoicing, CGST/SGST/IGST calculations, making charges, wastage, old-gold credit, scheme redemption, multiple payment methods, inventory deduction, PDF invoices |
+| **Inventory Management**           | Gross/net weight, purity, stone details, HUID/hallmark tracking, stock ledger, audit trail, stock valuation, barcode support                                               |
+| **Rate Master**                    | Gold, silver and platinum rates, purity-wise rates, historical rates, automatic invoice rate application                                                                   |
+| **Customer Management**            | Customer database, purchase history, payment history, account ledger, outstanding dues                                                                                     |
+| **Supplier & Purchase Management** | Purchase bills, inventory updates, supplier ledger, payable tracking, purchase history                                                                                     |
+| **Job Work / Karigar**             | Raw metal issue, finished item receipt, wastage tracking, making charges and artisan payments                                                                              |
+| **Old Gold Exchange**              | Trade-in recording, purity, deductions, exchange value, credit or cash settlement                                                                                          |
+| **Repair Management**              | Repair tokens, expected dates, advance payments, status tracking and balance due                                                                                           |
+| **Business Reports**               | Sales register, GST summary, stock valuation, receivables, payables and artisan payments                                                                                   |
+| **Settings & Administration**      | Shop profile, GSTIN, HSN/GST configuration, categories, users, roles, backup/restore and audit log                                                                         |
+
+---
+
+# 🏗️ Project Architecture
+
+```text
 luxury-jewellers-erp/
-├── package.json                  # Electron app config, build settings (electron-builder)
-├── build/                        # Windows installer assets (icon.ico, etc.)
-├── release/                      # Build output (*.exe installer, unpacked app)
-├── backups/                      # Database backup storage
 │
-├── src/main/                     # Electron main process (Node.js backend, runs on host machine)
-│   ├── main.js                   # Application entry point, window lifecycle, menu setup
-│   ├── preload.js                # Secure contextBridge API exposed to React frontend
-│   │
-│   ├── database/
-│   │   ├── db.js                 # SQLite connection, schema initialization, seed data
-│   │   ├── schema.sql            # Complete relational schema (all modules)
-│   │   └── migrations/           # Future schema migration scripts
-│   │
-│   ├── services/                 # Business logic layer (one service per module)
-│   │   ├── authService.js        # User authentication, password management
-│   │   ├── billingService.js     # Invoice creation, GST calculation, stock & ledger updates
-│   │   ├── inventoryService.js   # Item master, stock tracking, valuations
-│   │   ├── purchaseService.js    # Purchase order & bill processing
-│   │   ├── karigarService.js     # Job work and artisan payment tracking
-│   │   ├── oldGoldService.js     # Trade-in & exchange management
-│   │   ├── customerService.js    # Customer database & ledger
-│   │   ├── supplierService.js    # Supplier management & payables
-│   │   ├── rateService.js        # Precious metal rate management
-│   │   ├── repairService.js      # Repair job tracking
-│   │   ├── reportService.js      # Financial and operational reports
-│   │   ├── settingsService.js    # Configuration and system settings
-│   │   ├── backupService.js      # Database backup & restore
-│   │   ├── invoicePdfService.js  # Tax invoice PDF generation (pdfkit)
-│   │   ├── auditPdfService.js    # Audit report PDF generation
-│   │   └── notificationService.js# System notifications
-│   │
-│   ├── ipc/
-│   │   └── ipcHandlers.js        # Registers all IPC channels (ipcMain.handle)
-│   │
-│   └── utils/
-│       ├── gst.js                # GST calculation engine (CGST/SGST/IGST logic)
-│       ├── pricing.js            # Price computation (making charges, wastage, etc.)
-│       └── numberSequence.js     # Financial year-based document numbering
+├── package.json
+├── package-lock.json
+├── README.md
+├── LICENSE.txt
 │
-└── renderer/                     # React frontend (Vite bundler, runs in app window)
-    ├── index.html                # HTML template
-    ├── vite.config.js            # Vite build configuration
+├── build/
+│   └── Windows installer assets
+│
+├── release/
+│   └── Production build output
+│
+├── backups/
+│   └── Database backups
+│
+├── src/
+│   └── main/
+│       │
+│       ├── main.js
+│       ├── preload.js
+│       │
+│       ├── database/
+│       │   ├── db.js
+│       │   ├── schema.sql
+│       │   └── migrations/
+│       │
+│       ├── services/
+│       │   ├── authService.js
+│       │   ├── billingService.js
+│       │   ├── inventoryService.js
+│       │   ├── purchaseService.js
+│       │   ├── karigarService.js
+│       │   ├── oldGoldService.js
+│       │   ├── customerService.js
+│       │   ├── supplierService.js
+│       │   ├── rateService.js
+│       │   ├── repairService.js
+│       │   ├── reportService.js
+│       │   ├── settingsService.js
+│       │   ├── backupService.js
+│       │   ├── invoicePdfService.js
+│       │   ├── auditPdfService.js
+│       │   └── notificationService.js
+│       │
+│       ├── ipc/
+│       │   └── ipcHandlers.js
+│       │
+│       └── utils/
+│           ├── gst.js
+│           ├── pricing.js
+│           └── numberSequence.js
+│
+└── renderer/
+    │
+    ├── index.html
+    ├── vite.config.js
+    │
     └── src/
-        ├── main.jsx              # React app entry point
-        ├── App.jsx               # Main app routing & layout
         │
-        ├── context/              # React Context API providers
-        │   ├── AuthContext.jsx   # User authentication state
-        │   └── ToastContext.jsx  # Toast notifications
+        ├── main.jsx
+        ├── App.jsx
         │
-        ├── components/           # Reusable UI components
-        │   ├── Layout.jsx        # Main layout wrapper
-        │   └── Modal.jsx         # Modal dialog component
+        ├── context/
+        │   ├── AuthContext.jsx
+        │   └── ToastContext.jsx
         │
-        ├── pages/                # Page components (one folder per module)
+        ├── components/
+        │   ├── Layout.jsx
+        │   └── Modal.jsx
+        │
+        ├── pages/
         │   ├── Login/
         │   ├── Dashboard/
         │   ├── Billing/
@@ -319,197 +411,403 @@ luxury-jewellers-erp/
         │   └── Settings/
         │
         ├── styles/
-        │   └── theme.css         # Global styles (luxury black & gold theme)
+        │   └── theme.css
         │
-        └── utils/                # Frontend utilities
+        └── utils/
 ```
 
-**Architecture Highlights:**
-- **Clear separation of concerns:** Business logic in services, UI in React components
-- **IPC bridge:** Secure communication between frontend (React) and backend (Node.js)
-- **No external API dependency:** All data stored in local SQLite database
-- **Modular services:** Each business domain in a separate service file for easy testing and extension
+---
 
-## 💻 System Requirements & Installation
+# 🧠 Architecture Highlights
 
-### Prerequisites
+### Clear Separation of Concerns
 
-- **Node.js 20 LTS or later** — [Download](https://nodejs.org/)
-- **Windows 10/11** (64-bit recommended)
-- **4 GB RAM minimum** (8 GB recommended)
-- **500 MB disk space** for installation and database
+Business logic is separated into service modules while the UI is handled by React.
 
-> **Important:** The app uses `better-sqlite3`, a native Node.js module compiled for Windows. Running `npm install` on the Windows machine will automatically download and use the correct prebuilt binary. Do not copy `node_modules` from other operating systems to Windows.
+### Electron IPC Bridge
 
-### Development Setup
+The React renderer communicates with the Node.js backend using Electron's `contextBridge` and IPC.
+
+### Local SQLite Database
+
+Business data is stored in a local SQLite database.
+
+### Modular Services
+
+Each business domain has its own service module for easier maintenance and extension.
+
+### Desktop Architecture
+
+```text
+React UI
+   │
+   ▼
+Electron Renderer
+   │
+   ▼
+contextBridge / IPC
+   │
+   ▼
+Node.js Services
+   │
+   ▼
+SQLite Database
+```
+
+---
+
+# 💻 System Requirements & Installation
+
+## Prerequisites
+
+* **Node.js 20 LTS or later**
+* **Windows 10/11** for Windows production builds
+* **4 GB RAM minimum**
+* **8 GB RAM recommended**
+* **500 MB disk space**
+
+> **Important:** The project uses `better-sqlite3`, a native Node.js module. Run `npm install` on the target platform so the appropriate native dependency is installed.
+
+---
+
+# 🧑‍💻 Development Setup
+
+## Clone the Repository
 
 ```bash
-# Clone the repository
 git clone <repository-url>
 cd luxury-jewellers-erp
+```
 
-# Install dependencies
+## Install Dependencies
+
+```bash
 npm install
+```
 
-# Start development server with hot reload
+## Start Development
+
+```bash
 npm run dev
 ```
 
-The app will launch with Vite dev server and Electron pointed to it. Database is created automatically at:
-```
+The application starts with the Vite development server and Electron.
+
+---
+
+# 🗄️ Database
+
+The application uses SQLite for local data storage.
+
+Typical database location:
+
+```text
 %APPDATA%\luxury-jewellers-erp\data\luxury_jewellers.db
 ```
 
-**Default Login Credentials:**
-```
-Username: admin
-Password: admin123
-```
+Database initialization and schema management are handled inside the Electron main process.
 
-⚠️ **Change the default password immediately** after first login via **Settings → Users → Change My Password**.
+---
 
-### Production Build
+# 📦 Production Build
+
+Install dependencies:
 
 ```bash
-# Build the installer for Windows
 npm install
+```
+
+Build the Windows installer:
+
+```bash
 npm run dist:win
 ```
 
-This generates a professional NSIS installer at:
+Production output:
+
+```text
+release/
 ```
+
+Example:
+
+```text
 release/Luxury Jewellers Setup <version>.exe
 ```
 
-The installer:
-- Creates a desktop shortcut
-- Adds a Start Menu entry
-- Stores the database in `%APPDATA%\luxury-jewellers-erp\data\`
-- Can be uninstalled via Windows Settings → Apps
+The installer can:
 
-To create an unpacked test build without an installer:
+* Create a desktop shortcut
+* Add a Start Menu entry
+* Store application data under `%APPDATA%`
+* Be uninstalled from Windows Settings
+
+---
+
+## Unpacked Build
+
+For testing an unpacked production build:
+
 ```bash
 npm run pack
 ```
 
 ---
 
-## 🚀 Quick Start Guide
+# 🚀 Quick Start Guide
 
-### 1. Set Shop Details and Rates
+## 1. Set Shop Details and Rates
 
 On first launch:
-1. Log in with default credentials (`admin` / `admin123`)
-2. Go to **Settings → Shop Profile** and enter:
-   - Shop name and GSTIN
-   - Address and contact details
-   - State code (for GST compliance)
-3. Go to **Rate Master** and enter today's gold/silver/platinum rates for each purity
-4. Change your password immediately
 
-### 2. Create Your First Sale
-
-**Billing / POS** workflow:
-1. Click **New Invoice**
-2. Search for or scan an item from your inventory (or add a new item on-the-fly)
-3. Adjust making charges, wastage percentage, or quantity as needed
-4. Optionally apply old-gold exchange credit or customer scheme redemption
-5. Select payment method (cash, check, card, etc.)
-6. Click **Complete Sale** — the system calculates GST automatically
-7. Print the PDF tax invoice from the invoice detail page
-
-### 3. Manage Your Inventory
-
-- **Inventory → New Item:** Add items to the master with weight, purity, HUID, stone details
-- **Inventory → Stock Ledger:** View complete audit trail of stock movements
-- **Inventory → Stock Valuation:** See inventory value at today's rates
-
-### 4. Record Purchases and Payables
-
-**Suppliers & Purchases:**
-1. Click **New Purchase Bill**
-2. Select or create a supplier
-3. Add items with rate and quantity
-4. The system automatically credits inventory and updates supplier's payable ledger
-5. Record payments to suppliers anytime
-
-### 5. Backup Your Data Regularly
-
-Go to **Settings → Backup & Restore → Backup Now** and save to:
-- An external USB drive, or
-- A cloud-synced folder (Google Drive, OneDrive, Dropbox, etc. desktop app)
-
-For added safety, set up automated backups using Windows Task Scheduler.
+1. Log in.
+2. Open **Settings → Shop Profile**.
+3. Enter shop name.
+4. Enter GSTIN.
+5. Enter address and contact details.
+6. Configure state information.
+7. Open **Rate Master**.
+8. Enter today's gold, silver and platinum rates.
+9. Change your password.
 
 ---
 
-## 📊 Financial & Compliance Features
+## 2. Create Your First Sale
 
-### GST Computation
-- Automatic CGST/SGST calculation for intra-state sales
-- Automatic IGST calculation for inter-state sales
-- Based on HSN codes configured in Settings
-- Compliant with current CBIC notifications (verify before going live)
+### Billing / POS Workflow
 
-### Inventory Valuation
-- FIFO (first-in, first-out) cost calculation
-- Real-time valuation at current market rates
-- Full audit trail of all stock movements
-
-### Document Numbering
-- Automatic invoice, purchase, job work, and exchange numbers
-- Resets on 1 April (Indian financial year)
-- Format: `INV/2526/00001`, `PUR/2526/00001`, etc.
-
-### Reports for Compliance
-- **Sales Register:** By date range, HSN-wise
-- **GST Summary:** Ready for GSTR-1 filing
-- **Stock Valuation:** For balance sheet
-- **Outstanding Dues:** Receivables and payables ledger
-- **Artisan Payments:** Karigar job work statements
-
----
-
-## 🔒 Security & Data Protection
-
-- **Offline-first:** All data stored locally; no data sent to external servers
-- **Encrypted passwords:** User passwords are securely hashed
-- **Audit trail:** Every transaction is logged with user, date, time
-- **Backup with safety copy:** Restore operation keeps a copy of existing data before overwriting
-- **Role-based access:** Admin, manager, and staff roles with configurable permissions
+```text
+New Invoice
+     ↓
+Search / Scan Item
+     ↓
+Select Customer
+     ↓
+Adjust Making Charges / Wastage
+     ↓
+Apply Old Gold / Scheme Credit
+     ↓
+Select Payment Method
+     ↓
+Complete Sale
+     ↓
+GST Calculation
+     ↓
+Generate PDF Invoice
+     ↓
+Print Invoice
+```
 
 ---
 
-## 🛠️ Technical Stack
+## 3. Manage Inventory
 
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Desktop Framework** | Electron 28+ | Windows desktop app wrapper |
-| **UI Framework** | React 18+ | Modern component-based UI |
-| **Build Tool** | Vite | Fast bundling and dev server |
-| **Backend** | Node.js 20 LTS | Business logic and data access |
-| **Database** | SQLite (better-sqlite3) | Relational data storage |
-| **PDF Generation** | pdfkit | Tax invoice and report generation |
-| **Styling** | CSS3 | Luxury black & gold design |
-| **IPC** | contextBridge | Secure frontend-backend communication |
+Go to:
+
+**Inventory**
+
+You can:
+
+* Add new jewellery items
+* Add gross/net weight
+* Configure purity
+* Add HUID
+* Add stone details
+* Search items
+* View stock ledger
+* View stock valuation
+* Track stock movements
 
 ---
 
-## 📖 Development & Extension
+## 4. Record Purchases and Payables
 
-The codebase is organized for maintainability and extensibility:
+Go to:
 
-### Adding a New Feature
+**Suppliers & Purchases**
 
-1. **Create a service:** `src/main/services/myFeatureService.js` with pure functions
-2. **Add database schema:** Update `src/main/database/schema.sql` with new tables
-3. **Register IPC channel:** Add `ipcMain.handle('myFeature:action', ...)` in `src/main/ipc/ipcHandlers.js`
-4. **Create UI components:** React pages/components in `renderer/src/pages/MyFeature/`
-5. **Connect via IPC:** Use `window.electron.invoke('myFeature:action', data)` from React
+Workflow:
 
-### Code Examples
+```text
+Select / Create Supplier
+        ↓
+New Purchase Bill
+        ↓
+Add Items
+        ↓
+Inventory Update
+        ↓
+Supplier Payable Update
+        ↓
+Record Supplier Payment
+```
 
-**Service function** (`src/main/services/billingService.js`):
+---
+
+## 5. Backup Your Data
+
+Go to:
+
+**Settings → Backup & Restore → Backup Now**
+
+Recommended locations:
+
+* USB drive
+* Google Drive
+* OneDrive
+* Dropbox
+* Other trusted storage
+
+For additional protection, automated Windows backups can be configured using Task Scheduler.
+
+---
+
+# 📊 Financial & Compliance Features
+
+## GST Computation
+
+The application supports:
+
+* CGST calculation for intra-state transactions
+* SGST calculation for intra-state transactions
+* IGST calculation for inter-state transactions
+* HSN-based GST configuration
+* GST summary reporting
+
+> ⚠️ **Compliance Notice:** Always verify HSN codes and GST rates against the latest applicable CBIC notifications and have your CA/GST practitioner review the configuration before live production billing.
+
+---
+
+## Inventory Valuation
+
+The application supports:
+
+* FIFO-based cost calculation
+* Current market-rate valuation
+* Stock movement tracking
+* Full audit history
+
+---
+
+## Document Numbering
+
+The application supports automatic numbering for:
+
+* Invoices
+* Purchases
+* Job Work
+* Old Gold Exchange
+
+Financial-year-based numbering is supported.
+
+Example:
+
+```text
+INV/2526/00001
+PUR/2526/00001
+```
+
+---
+
+## Reports for Compliance
+
+Available reports include:
+
+* **Sales Register** — Date-range and HSN-wise
+* **GST Summary** — Useful for GSTR-1 preparation
+* **Stock Valuation** — Inventory valuation
+* **Outstanding Dues** — Receivables and payables
+* **Artisan Payments** — Karigar job-work statements
+
+---
+
+# 🔒 Security & Data Protection
+
+* **Offline-First:** Core data is stored locally
+* **Password Security:** Passwords are securely hashed
+* **Audit Trail:** Transactions are logged with user and time
+* **Backup Safety:** Restore creates a safety copy before overwriting
+* **Role-Based Access:** Admin, Manager and Staff permissions
+* **Local SQLite Database:** No cloud database required for core operations
+
+---
+
+# 🛠️ Technical Stack
+
+| Layer                 | Technology              | Purpose                               |
+| --------------------- | ----------------------- | ------------------------------------- |
+| **Desktop Framework** | Electron 28+            | Windows desktop application           |
+| **UI Framework**      | React 18+               | Component-based UI                    |
+| **Build Tool**        | Vite                    | Fast bundling and development         |
+| **Backend**           | Node.js 20 LTS          | Business logic and data access        |
+| **Database**          | SQLite + better-sqlite3 | Local relational database             |
+| **PDF Generation**    | PDFKit                  | Invoice and report generation         |
+| **Styling**           | CSS3                    | Luxury black & gold interface         |
+| **IPC**               | Electron contextBridge  | Secure renderer-to-main communication |
+
+---
+
+# 📖 Development & Extension
+
+The codebase is organized for maintainability and extensibility.
+
+## Adding a New Feature
+
+### 1. Create a Service
+
+```text
+src/main/services/myFeatureService.js
+```
+
+Put business logic inside the service.
+
+### 2. Update Database Schema
+
+```text
+src/main/database/schema.sql
+```
+
+Add or modify the required database tables.
+
+### 3. Register an IPC Channel
+
+Add the corresponding handler inside:
+
+```text
+src/main/ipc/ipcHandlers.js
+```
+
+Example:
+
+```javascript
+ipcMain.handle('myFeature:action', (event, data) => {
+  return myFeatureService.action(data);
+});
+```
+
+### 4. Create the React UI
+
+Add components/pages under:
+
+```text
+renderer/src/pages/MyFeature/
+```
+
+### 5. Connect the UI
+
+Call the Electron API:
+
+```javascript
+const result = await window.electron.invoke(
+  'myFeature:action',
+  data
+);
+```
+
+---
+
+# 💡 Example Business Service
+
 ```javascript
 function createInvoice(invoiceData) {
   // Validate input
@@ -520,118 +818,269 @@ function createInvoice(invoiceData) {
 }
 ```
 
-**IPC handler** (`src/main/ipc/ipcHandlers.js`):
-```javascript
-ipcMain.handle('billing:createInvoice', (event, data) => {
-  return billingService.createInvoice(data);
-});
+---
+
+# ❓ FAQ & Troubleshooting
+
+## Q: I get a `better-sqlite3 not found` error
+
+Run:
+
+```bash
+npm install
 ```
 
-**React component** (`renderer/src/pages/Billing/Billing.jsx`):
-```javascript
-const handleCreateInvoice = async (data) => {
-  const result = await window.electron.invoke('billing:createInvoice', data);
-  showToast('Invoice created successfully');
-};
+on the target Windows machine.
+
+---
+
+## Q: Database is not updating after a sale
+
+Verify that:
+
+1. The invoice was successfully completed.
+2. The sale was saved.
+3. Inventory was updated.
+4. Application logs do not contain errors.
+
+Logs can normally be found under:
+
+```text
+%APPDATA%\luxury-jewellers-erp\logs\
 ```
 
-All business logic is in plain JavaScript functions — easy to test and extend without understanding framework abstractions.
+---
+
+## Q: How do I add a new user?
+
+Go to:
+
+**Settings → Users → New User**
+
+Assign:
+
+* Username
+* Password
+* Role
+
+Available roles include:
+
+* Admin
+* Manager
+* Staff
 
 ---
 
-## ❓ FAQ & Troubleshooting
+## Q: Can the application run on macOS or Linux?
 
-### Q: I get "better-sqlite3 not found" error
-**A:** Run `npm install` on your Windows machine to fetch the correct native binary.
+The application is built using Electron, but the published production application is designed for Windows.
 
-### Q: Database is not updating after a sale
-**A:** Check that you clicked "Complete Sale" and the invoice was created successfully. Check application logs in `%APPDATA%\luxury-jewellers-erp\logs\`.
-
-### Q: How do I add a new user?
-**A:** Go to **Settings → Users → New User**. Assign a username, password, and role (Admin/Manager/Staff).
-
-### Q: Can I run this on macOS or Linux?
-**A:** The code is platform-agnostic, but the installer is built for Windows. You can run `npm run dev` on any OS for development. For production, Electron and better-sqlite3 need platform-specific builds.
-
-### Q: How often should I backup?
-**A:** At minimum, backup daily. For high-volume shops, backup after every major batch of invoicing.
-
-### Q: Can I restore from an old backup?
-**A:** Yes. Go to **Settings → Backup & Restore → Restore** and select your backup file. The app will create a safety copy of your current data before restoring.
-
-### Q: What if I forget the admin password?
-**A:** The database file is stored unencrypted (passwords are hashed). If you lose all credentials, you can delete the database file and restart the app to reset to defaults. However, you will lose all data — always keep backups!
+Platform-specific builds and native dependency packaging are required for other operating systems.
 
 ---
 
-## 📞 Support & Feedback
+## Q: How often should I backup?
 
-For issues, feature requests, or technical questions:
-- Check the [FAQ & Troubleshooting](#-faq--troubleshooting) section above
-- Review logs in `%APPDATA%\luxury-jewellers-erp\logs\`
-- Consult your CA/GST practitioner for compliance questions
+At minimum:
 
----
+**Daily**
 
-## 🤝 Contributing
+For high-volume jewellery stores:
 
-This is a production application maintained for a specific business domain. If you would like to contribute fixes or improvements:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -am 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Please ensure your code:
-- Follows the existing code style (plain JavaScript, no unnecessary abstractions)
-- Includes comments for complex logic
-- Does not break existing functionality
-- Is tested manually
+**After major invoicing sessions**
 
 ---
 
-## ⚠️ Compliance Disclaimer
+## Q: Can I restore an old backup?
 
-**Important Legal Notice:**
+Yes.
 
-This software is a business tool for billing, inventory, and reporting. It is **NOT** tax or legal advice. The GST calculations, invoicing format, and compliance features are based on CBIC notifications and regulations as of the release date.
+Go to:
 
-**Before going live, you MUST:**
-1. Verify all HSN codes and GST rates against the latest CBIC notifications for your state
-2. Have your Chartered Accountant or GST practitioner review the settings and sample invoices
-3. Test thoroughly in a non-production environment
-4. Keep complete backups of all data
-5. Maintain audit trails and comply with GST law and income tax regulations
+**Settings → Backup & Restore → Restore**
 
-**The developers and vendors of this software are not liable for:**
-- Tax penalties or GST audit issues arising from incorrect configuration
-- Loss of data due to hardware failure or user error
-- Any compliance violations due to misuse or misconfiguration
-
-Always consult a qualified CA or GST expert for your specific business situation.
+The application creates a safety copy before replacing the current database.
 
 ---
 
-## 📄 License
+## Q: What happens if I forget the admin password?
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+The database stores hashed passwords rather than plain-text passwords.
 
----
-
-## 🎯 Roadmap & Future Enhancements
-
-Potential features for future releases:
-- Multi-branch inventory sync
-- E-way bill integration
-- SMS/WhatsApp invoice delivery
-- Advanced analytics dashboard
-- Integration with government GST portal APIs
-- Multi-language support (Hindi, regional languages)
-- Mobile app companion for staff access
+Always maintain secure backups and recovery procedures before attempting a database reset.
 
 ---
 
-**Built with ❤️ for Indian jewellery retailers.**
+# 📞 Support & Feedback
 
-**Version:** 1.0.0 | **Last Updated:** August 2026
+For issues, feature requests or technical questions:
+
+* Review the FAQ and troubleshooting section
+* Check application logs
+* Verify database and backup status
+* Consult your CA/GST practitioner for tax-related configuration
+
+### Developer
+
+**Md Mufid Alam**
+
+📧 Email:
+[mdmufid2004@gmail.com](mailto:mdmufid2004@gmail.com)
+
+🌐 Portfolio:
+https://portfolio-sigma-ecru-82.vercel.app/
+
+💻 GitHub:
+https://github.com/Mdmufid
+
+💼 LinkedIn:
+https://www.linkedin.com/in/md-mufid-alam/
+
+---
+
+# 🤝 Contributing
+
+This is a production-oriented application focused on the jewellery retail domain.
+
+For development contributions:
+
+```bash
+git checkout -b feature/amazing-feature
+```
+
+Make and test your changes before creating a pull request.
+
+Please ensure your contribution:
+
+* Follows the existing code style
+* Does not break existing functionality
+* Includes comments for complex logic
+* Is manually tested
+* Handles database changes carefully
+
+---
+
+# ⚠️ Compliance Disclaimer
+
+## Important Legal Notice
+
+This software is a business tool for billing, inventory and reporting.
+
+It is **NOT tax or legal advice**.
+
+The GST calculations, invoice formats and reporting features should always be reviewed against current applicable regulations.
+
+### Before Going Live
+
+You should:
+
+1. Verify HSN codes and GST rates against the latest applicable CBIC notifications.
+2. Have your Chartered Accountant or GST practitioner review the settings.
+3. Review sample invoices before production use.
+4. Keep complete backups of business data.
+5. Maintain transaction audit trails.
+6. Follow applicable GST and income-tax regulations.
+
+The developers and vendors of this software are not responsible for:
+
+* Tax penalties caused by incorrect configuration
+* GST audit issues caused by incorrect configuration
+* Data loss caused by hardware failure or user error
+* Compliance violations caused by misuse or misconfiguration
+
+Always consult a qualified CA or GST expert for your specific business requirements.
+
+---
+
+# 📄 License
+
+**Proprietary License — All Rights Reserved**
+
+This software is proprietary software.
+
+Unauthorized redistribution, resale, modification, commercial use or republishing is prohibited without explicit permission from the copyright holder.
+
+See the `LICENSE.txt` file for complete licensing terms.
+
+---
+
+# 🎯 Roadmap & Future Enhancements
+
+Potential future releases may include:
+
+* Multi-branch inventory synchronization
+* E-way bill integration
+* SMS invoice delivery
+* WhatsApp invoice delivery
+* Advanced analytics dashboard
+* Government GST portal integrations
+* Multi-language support
+* Hindi and regional-language support
+* Mobile companion application
+* Advanced business intelligence
+
+---
+
+# ❤️ About
+
+**Luxury Jewellers ERP** is a Windows desktop ERP designed around the workflows of Indian jewellery retailers.
+
+It brings together:
+
+```text
+Billing
+   +
+Inventory
+   +
+Precious Metal Rates
+   +
+GST
+   +
+Customer Ledger
+   +
+Supplier Management
+   +
+Purchases
+   +
+Old Gold Exchange
+   +
+Karigar / Job Work
+   +
+Repairs
+   +
+Reports
+   +
+Backup & Security
+```
+
+The project is built with a focus on practical business workflows, maintainable architecture and a professional desktop experience.
+
+---
+
+## 🛍️ Microsoft Store
+
+👉 **Download Luxury Jewellers ERP**
+
+https://apps.microsoft.com/detail/9mszc38x7180?hl=en-GB&gl=IN
+
+---
+
+## 🎥 Product Demo
+
+👉 **Watch the complete YouTube demonstration**
+
+https://youtu.be/tm3qxCA1iwo
+
+---
+
+<p align="center">
+
+### 💎 Built with ❤️ for Indian Jewellery Retailers
+
+**Luxury Jewellers ERP**
+
+**Version 1.0.2**
+
+**August 2026**
+
+</p>
